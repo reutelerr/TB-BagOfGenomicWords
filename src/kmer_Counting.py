@@ -60,10 +60,11 @@ def filterByFrequency():
         (nucleotideCount, sequence_indexes) = pickle.load(open(indexFilePath+str(length), "rb"))
 
         for kmer in tqdm(sequence_indexes):
-            noOfEffectiveOccurences = len(sequence_indexes[kmer]) - occurenceFreqAsSubSeq(kmer, frequent_sequence_indexes[
-                                                                                                length:maxLength - 1])
-            if noOfEffectiveOccurences / nucleotideCount > pow(0.25, len(kmer)) * minimumFrequencyThreshold:  # Removing any non-frequent kner
-                frequent_sequence_indexes[length - 1][kmer] = sequence_indexes[kmer]
+            noOfOccurences = len(sequence_indexes[kmer])
+            if noOfOccurences/nucleotideCount > pow(0.25, len(kmer)) * minimumFrequencyThreshold:
+                noOfEffectiveOccurences = len(sequence_indexes[kmer]) - occurenceFreqAsSubSeq(kmer, frequent_sequence_indexes[length:maxLength - 1])
+                if noOfEffectiveOccurences / nucleotideCount > pow(0.25, len(kmer)) * minimumFrequencyThreshold:  # Removing any non-frequent kner
+                    frequent_sequence_indexes[length - 1][kmer] = sequence_indexes[kmer]
 
 
 
