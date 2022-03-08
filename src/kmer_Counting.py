@@ -5,7 +5,7 @@ import pickle
 
 minimumFrequencyThreshold = 1.0
 seqLimiter = 100000
-maxLength = 10
+maxLength = 5
 
 #Gets the maximum frequency of this sequence as a subsequence of longer ones
 def occurenceFreqAsSubSeq(seq, frequent_seq_indexes):
@@ -56,7 +56,7 @@ def countKmers(mode, indexFilePath, sourcePath):
                     sequenceIndexes[kmer] = [nucleotideCounter]
 
         sequenceIndexesFilename = indexFilePath + "/sequences" +str(length)
-        sequenceIndexesFile = open(sequenceIndexesFilename, "wb")
+        sequenceIndexesFile = open(sequenceIndexesFilename, "wb") # TODO create folder dynamically aswell
         pickle.dump((nucleotideCounter, sequenceIndexes), sequenceIndexesFile)
         print(sequenceCount)
 

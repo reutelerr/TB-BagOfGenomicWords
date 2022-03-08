@@ -9,7 +9,7 @@ ADD = 1
 def displayHelp():
     print(
         "AVAILIBLE COMMANDS\n"
-        " dictionary <action> <dictionaryName> <filepath>\n"
+        " dictionary <action> <dictionaryName> <sourceFilepath>\n"
         " <action> values : 'new', 'add', 'filter'\n"
     )
 
@@ -34,7 +34,7 @@ def Filter(name):
 if (sys.argv[1] == "help"):
     displayHelp()
 
-if (sys.argv[1] == "dictionary" and len(sys.argv)>4):
+if (sys.argv[1] == "dictionary"):
     if (sys.argv[2] == "new"):
         Index(NEW, sys.argv[3], sys.argv[4])
     if (sys.argv[2] == "add"):
