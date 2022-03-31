@@ -1,3 +1,5 @@
 sequences.txt
-sequences.fasta
+*.fasta
+*.csv
+*.json
 labels.txt
