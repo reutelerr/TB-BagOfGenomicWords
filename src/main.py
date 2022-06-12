@@ -2,6 +2,8 @@ import time
 import sys
 
 import kmer_Counting
+import utils
+from src.testSequenceInjecter import needlemanWunschInjectedSequence
 
 NEW = 0
 ADD = 1
@@ -48,3 +50,9 @@ if (sys.argv[1] == "dictionary"):
         Index(ADD, sys.argv[3], sys.argv[4])
     if (sys.argv[2] == "filter"):
         Filter(sys.argv[3])
+
+if (sys.argv[1] == "convert"):
+    utils.CSVtoFASTA(sys.argv[2], sys.argv[3])
+
+if (sys.argv[1] == "verifySequence"):
+    needlemanWunschInjectedSequence(sys.argv[2])

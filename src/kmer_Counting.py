@@ -7,6 +7,8 @@ import numpy as np
 from tqdm import tqdm
 import pickle
 
+from src.utils import blocks
+
 minimumFrequencyThreshold = 2.0
 seqLimiter = 100000
 maxLength = 10
@@ -37,11 +39,7 @@ def countKmers(sequence, sequenceCounts, nucleotideCounter, kmerLength) :
 
 def readSequenceFile(mode, indexFilePath, sourcePath, sourceType):
     sequence_file = open("../"+sourcePath)
-    def blocks(file, size=65536):
-        while True:
-            b = file.read(size)
-            if not b: break
-            yield b
+
 
     noLines = sum(bl.count("\n") for bl in blocks(sequence_file))
     print("Total number of lines in file : "+str(noLines))
