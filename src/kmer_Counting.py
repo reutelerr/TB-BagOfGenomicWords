@@ -7,7 +7,7 @@ import numpy as np
 from tqdm import tqdm
 import pickle
 
-from src.constants import CSV, FASTA, VECTORIZE
+from src.constants import CSV, FASTA, makeBOW
 from src.utils import blocks
 
 minimumFrequencyThreshold = 2.0
@@ -39,7 +39,7 @@ def countKmers(sequence, kmerCounts, nucleotideCounter, kmerLength, newCounts) :
                 kmerCounts[kmer] = 1
     return nucleotideCounter + kmerLength
 
-def vectorize(dictionaryName, sourcePath, outputPath, sourceType):
+def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
     sequence_file = open(sourcePath)
 
     noLines = sum(bl.count("\n") for bl in blocks(sequence_file))
@@ -70,7 +70,7 @@ def vectorize(dictionaryName, sourcePath, outputPath, sourceType):
                 nucleotideCounter = 0
                 for length in range(maxLength, 2, -1):
 
-                    dictionaryFileName = dictionaryName + "/sequences" + str(length) + ".json"
+                    dictionaryFileName = dictionaryPath + "/kmerCounts" + str(length) + ".json"
                     dictionaryFile = open(dictionaryFileName, "rb")
                     (nucleotideCount, validKmers) = json.load(dictionaryFile)
 
@@ -87,7 +87,7 @@ def vectorize(dictionaryName, sourcePath, outputPath, sourceType):
 
 
 
-def buildDictionary(mode, dictionaryName, sourcePath, sourceType = CSV):
+def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
     sequence_file = open(sourcePath)
 
     noLines = sum(bl.count("\n") for bl in blocks(sequence_file))
@@ -103,7 +103,7 @@ def buildDictionary(mode, dictionaryName, sourcePath, sourceType = CSV):
         kmerCounts = {}
         nucleotideCounter = 0
 
-        dictionaryFileName = dictionaryName + "/sequences" + str(length) + ".json"
+        dictionaryFileName = dictionaryPath + "/kmerCounts" + str(length) + ".json"
 
         with tqdm(total=noLines, position=0, leave=True) as pbar:
 

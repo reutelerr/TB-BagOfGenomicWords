@@ -1,5 +1,6 @@
-sequences.txt
+sequences/synthetic_sequences.fasta
 *.fasta
 *.csv
 *.json
 labels.txt
+sequences/PhageContigsSeq/Metrics/proximateSequenceScores.txt
