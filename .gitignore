@@ -3,4 +3,4 @@ sequences/synthetic_sequences.fasta
 *.csv
 *.json
 labels.txt
-sequences/PhageContigsSeq/Metrics/proximateSequenceScores.txt
+venv
