@@ -4,8 +4,7 @@ import sys
 import kmer_Counting
 import utils
 from constants import *
-from src.testSequenceInjecter import needlemanWunschInjectedSequence
-
+from src.testSequenceInjecter import needlemanWunschInjectedSequence, injectSequence
 
 
 def displayHelp():
@@ -16,6 +15,7 @@ def displayHelp():
         " makeBOWs <dictionaryName> <sourceFilepath> <outputFilePath>\n\n"
         " convertCSVtoFASTA <csvFilePath> <fastaFilePath>\n\n"
         " findAlignments <sequenceFilePath>\n\n"
+        " injectSequence <seqFilePath> <newSeqFilePath> <labelFilePath>"
     )
 
 
@@ -56,3 +56,6 @@ if (sys.argv[1] == "convertCSVtoFASTA"):
 
 if (sys.argv[1] == "findAlignments"):
     needlemanWunschInjectedSequence(sys.argv[2], "proximateSequenceScores.txt")
+
+if (sys.argv[1] == "injectSequence"):
+    injectSequence(sys.argv[2], sys.argv[3], sys.argv[4])
