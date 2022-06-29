@@ -1,0 +1,6 @@
+NEW = 0
+ADD = 1
+VECTORIZE = 2
+
+FASTA = 0
+CSV = 1
