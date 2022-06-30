@@ -35,7 +35,7 @@ def countKmers(sequence, kmerCounts, nucleotideCounter, kmerLength, newCounts) :
         if kmerCounts.__contains__(kmer):
             kmerCounts[kmer] += 1
         else:
-            if not newCounts: #onlyExisting determines wether we are counting kmers only already belonging to the dictionary or adding new ones
+            if not newCounts:
                 kmerCounts[kmer] = 1
     return nucleotideCounter + kmerLength
 
@@ -56,10 +56,11 @@ def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
     kmerCounts = {}
     nucleotideCounter = 0
 
+    BOWs = []
+
     with tqdm(total=noLines, position=0, leave=True) as pbar:
 
         if sourceType == CSV:
-            headers = sequence_file.readline().split(',')
             line = sequence_file.readline()
             while line:
                 pbar.update(1)
@@ -78,8 +79,11 @@ def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
                         validKmers[entry] = 0
                     nucleotideCounter = countKmers(sequence, validKmers, nucleotideCounter, length, True)
                     kmerCounts.update(validKmers)
-                output.write(json.dumps((id, nucleotideCounter, kmerCounts), indent=4))
+                BOWs = ((id, nucleotideCounter, len(kmerCounts), kmerCounts))
+                output.write(json.dumps(BOWs, indent=4))
+                output.write("\n===\n")
                 line = sequence_file.readline()
+
             dictionaryFile.close()
             sequence_file.close()
             output.close()

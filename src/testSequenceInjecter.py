@@ -1,4 +1,5 @@
 import math
+import os
 import random
 
 from Bio.Blast import NCBIWWW
@@ -56,8 +57,10 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequen
 
     random.seed()
     seqFile = open(seqFilePath, "r")
+    os.makedirs(os.path.dirname(newFilePath), exist_ok=True)
     newFile = open(newFilePath, "w")
     labelFile = open(labelFilePath, "w")
+
 
     if sourceType == CSV:
         headers = seqFile.readline().split(',')
