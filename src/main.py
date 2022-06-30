@@ -4,8 +4,7 @@ import sys
 import kmer_Counting
 import utils
 from constants import *
-from src.testSequenceInjecter import needlemanWunschInjectedSequence
-
+from src.testSequenceInjecter import needlemanWunschInjectedSequence, injectSequence
 
 
 def displayHelp():
@@ -17,6 +16,7 @@ def displayHelp():
         " convertCSVtoFASTA <csvFilePath> <fastaFilePath>\n\n"
         " findAlignments <sequenceFilePath>\n\n"
         " splitTrainingAndTesting <sequenceFilePath> <labelFilePath> <trainingFilePath> <trainingLabelPath> <testingFilePath> <testingLabelPath>\n\n"
+        " injectSequence <seqFilePath> <newSeqFilePath> <labelFilePath>"
     )
 
 
@@ -60,3 +60,6 @@ if (sys.argv[1] == "findAlignments"):
 
 if (sys.argv[1] == "splitTrainingAndTesting"):
     utils.splitTrainingAndTesting(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7])
+
+if (sys.argv[1] == "injectSequence"):
+    injectSequence(sys.argv[2], sys.argv[3], sys.argv[4])

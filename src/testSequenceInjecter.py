@@ -1,3 +1,6 @@
+import math
+import random
+
 from Bio.Blast import NCBIWWW
 from Bio import pairwise2
 from Bio.pairwise2 import format_alignment
@@ -49,11 +52,25 @@ def needlemanWunschInjectedSequence(fastaFilePath, outputPath  = None):
         pyplot.show()
     #Best alignement to date : gcaatta--gatctaat-gg-gacggaggc--ct with a score of 22.5 / 28
 
-def injectSequence(seq, seqFile, rate = 0.5, sourceType = CSV):
+def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequence, rate = 0.5, sourceType = CSV):
+
+    random.seed()
+    seqFile = open(seqFilePath, "r")
+    newFile = open(newFilePath, "w")
+    labelFile = open(labelFilePath, "w")
+
     if sourceType == CSV:
-        for line in seqFile:
-            return None
-            #if rand()<rate :
-                #seqStart = line.lastindexof(',')+1
-                #seqLength = line.length - seqStart
-                #insertIndex = seqStart + Math.floor(rand() * seqLength)
+        headers = seqFile.readline().split(',')
+        line = seqFile.readline()
+        while line:
+            if random.random()<rate :
+                label = 1
+                seqStart = line.rindex(',')+1
+                insertIndex = seqStart + random.randint(seqStart, len(line))
+                newFile.write(line[0:insertIndex]+seq+line[insertIndex:len(line)])
+
+            else:
+                label = 0
+                newFile.write(line)
+            labelFile.write(str(label)+'\n')
+            line = seqFile.readline()

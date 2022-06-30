@@ -15,6 +15,7 @@ Use "dictionary filter <dictionaryName>" to filter out less frequent K-mers
 
 Use "makeBOWs <dictionaryName> <sourceFilepath> <outputFilePath>" to convert sequences in text form (FASTA, CSV, ...) into Bags of Words in json format
 
+Use "injectSequence <sourceFilePath> <outputFilePath> <labelsFilePath>" to inject a sequence into a random selection of the sequences of the source file
 
 Use "findAlignments <sequenceFilePath>" to get the scores of the best alignments in a sequence file. Useful to verify if a sequence is naturally occuring in our data. Said sequence is for now simply a constant in testSequenceInjecter.py
 
