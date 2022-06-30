@@ -130,7 +130,7 @@ def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
                     pbar.update(1)
                     lineElements = line.split(',')
                     id = lineElements[0]
-                    sequence = lineElements[-1].lower()
+                    sequence = lineElements[-1].lower()[:len(lineElements[-1])-1]
                     nucleotideCounter = countKmers(sequence, kmerCounts, nucleotideCounter, length, False)
                     line = sequence_file.readline()
 

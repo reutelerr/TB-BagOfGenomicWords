@@ -1,4 +1,5 @@
 import os
+import random
 
 from tqdm import tqdm
 
@@ -34,3 +35,38 @@ def CSVtoFASTA(csvfilePath, fastaFilePath):
 
     fastaFile.close()
     csvFile.close()
+
+#Randomly separates training and testing data
+def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingSeqFilePath, trainingLabelFilePath, testingSeqFilePath, testingLabelFilePath, split = 0.9):
+    seqFile = open(seqFilePath)
+    labelFile = open(labelFilePath)
+
+    os.makedirs(os.path.dirname(trainingSeqFilePath), exist_ok=True)
+    trainingSeqFile = open(trainingSeqFilePath, "w")
+    trainingLabelFile = open(trainingLabelFilePath, "w")
+    os.makedirs(os.path.dirname(testingSeqFilePath), exist_ok=True)
+    testingSeqFile = open(testingSeqFilePath, "w")
+    testingLabelFile = open(testingLabelFilePath, "w")
+
+    random.seed()
+
+    headers = seqFile.readline().split(',')
+    line = seqFile.readline()
+    label = labelFile.readline()
+
+    while line:
+        if(random.random()<split):
+            trainingSeqFile.write(line)
+            trainingLabelFile.write(label)
+        else:
+            testingSeqFile.write(line)
+            testingLabelFile.write(label)
+        line = seqFile.readline()
+        label = labelFile.readline()
+
+    seqFile.close()
+    labelFile.close()
+    trainingSeqFile.close()
+    trainingLabelFile.close()
+    testingSeqFile.close()
+    testingLabelFile.close()

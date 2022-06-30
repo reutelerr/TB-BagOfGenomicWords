@@ -16,6 +16,7 @@ def displayHelp():
         " makeBOWs <dictionaryName> <sourceFilepath> <outputFilePath>\n\n"
         " convertCSVtoFASTA <csvFilePath> <fastaFilePath>\n\n"
         " findAlignments <sequenceFilePath>\n\n"
+        " splitTrainingAndTesting <sequenceFilePath> <labelFilePath> <trainingFilePath> <trainingLabelPath> <testingFilePath> <testingLabelPath>\n\n"
     )
 
 
@@ -56,3 +57,6 @@ if (sys.argv[1] == "convertCSVtoFASTA"):
 
 if (sys.argv[1] == "findAlignments"):
     needlemanWunschInjectedSequence(sys.argv[2], "proximateSequenceScores.txt")
+
+if (sys.argv[1] == "splitTrainingAndTesting"):
+    utils.splitTrainingAndTesting(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6], sys.argv[7])
