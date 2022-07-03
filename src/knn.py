@@ -1,4 +1,8 @@
 import json
+import sys
+
+import sklearn
+from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 
 def readBOWFile(seqFile):
@@ -13,7 +17,8 @@ def readBOWFile(seqFile):
             line = seqFile.readline()
         data.append(json.loads(str))
         sequencesLoaded += 1
-        print('\rSequences loaded : [%d]\n' % sequencesLoaded, end="")
+        print('\rSequences loaded : [%d]' % sequencesLoaded, end="")
+        sys.stdout.flush()
         str=""
         line = seqFile.readline()
     return data
@@ -31,17 +36,32 @@ def prepareData(seqFilePath, labelsFilePath):
 def trainAndTestKNN(trainingFilePath, trainingLabelsFilePath, testingFilePath, testingLabelsFilePath):
     print("Reading training data")
     (trainingBOWs, trainingLabels) = prepareData(trainingFilePath, trainingLabelsFilePath)
+    scaler = sklearn.preprocessing.StandardScaler().fit(trainingBOWs)
+    scaledTrainingBOWs = scaler.transform(trainingBOWs)
 
-    print("Training model")
-    neigh = KNeighborsClassifier(n_neighbors=10)
+    print("Training model (unscaled)")
+    neigh = KNeighborsClassifier(n_neighbors=100)
+    scores = cross_val_score(neigh, trainingBOWs, trainingLabels)
     neigh.fit(trainingBOWs, trainingLabels)
+
+    print("Training model (scaled)")
+    neighScaled = KNeighborsClassifier(n_neighbors=100)
+    scoresScaled = cross_val_score(neighScaled, scaledTrainingBOWs, trainingLabels)
+    neighScaled.fit(scaledTrainingBOWs, trainingLabels)
 
     print("Reading testing data")
     (testingBOWs, testingLabels) = prepareData(testingFilePath, testingLabelsFilePath)
+    scaledTestingBOWs = sklearn.preprocessing.normalize(testingBOWs)
+
+
 
     print("Testing model")
-    scores = neigh.score(testingBOWs, testingLabels)
-    print(scores)
+    testing_score = neigh.score(testingBOWs, testingLabels)
+    testing_scaled_score = neighScaled.score(scaledTestingBOWs, testingLabels)
+    print("Unscaled scores :"+str(scores))
+    print("-"+str(testing_score))
+    print("Scaled scores :"+str(scoresScaled))
+    print("-"+str(testing_scaled_score))
 
 
 
