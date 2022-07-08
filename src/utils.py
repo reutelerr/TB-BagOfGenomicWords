@@ -1,5 +1,6 @@
 import os
 import random
+import time
 
 from tqdm import tqdm
 
@@ -70,3 +71,12 @@ def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingSeqFilePath, tra
     trainingLabelFile.close()
     testingSeqFile.close()
     testingLabelFile.close()
+
+def timerWrapper(func):
+    def wrap(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        print("--- %s seconds ---" % (time.time() - start))
+        return result
+
+    return wrap
