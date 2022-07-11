@@ -51,7 +51,6 @@ def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingSeqFilePath, tra
 
     random.seed()
 
-    headers = seqFile.readline().split(',')
     line = seqFile.readline()
     label = labelFile.readline()
 

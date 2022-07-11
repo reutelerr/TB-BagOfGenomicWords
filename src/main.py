@@ -3,8 +3,8 @@ import sys
 
 import kmer_Counting
 import utils
-import knn
-from constants import *
+import modelTrainingAndTesting
+from src.constants import *
 from src.testSequenceInjecter import needlemanWunschInjectedSequence, injectSequence
 
 
@@ -65,7 +65,7 @@ if (sys.argv[1] == "splitTrainingAndTesting"):
 if (sys.argv[1] == "injectSequence"):
     injectSequence(sys.argv[2], sys.argv[3], sys.argv[4])
 
-if (sys.argv[1] == "trainKNN"):
+if (sys.argv[1] == "train"):
     start_time = time.time()
-    knn.trainAndTestKNN(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5])
+    modelTrainingAndTesting.trainAndTestKNN(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
     print("--- %s seconds ---" % (time.time() - start_time))

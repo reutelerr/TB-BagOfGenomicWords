@@ -69,7 +69,11 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequen
             if random.random()<rate :
                 label = 1
                 seqStart = line.rindex(',')+1
-                insertIndex = seqStart + random.randint(seqStart, len(line))
+                insertIndex = random.randint(seqStart, len(line)-1)
+                if not line[0:insertIndex]:
+                    raise Exception('must not insert at beginning of line')
+                if not line[insertIndex:len(line)]:
+                    raise Exception('must not insert AFTER line')
                 newFile.write(line[0:insertIndex]+seq+line[insertIndex:len(line)])
 
             else:
