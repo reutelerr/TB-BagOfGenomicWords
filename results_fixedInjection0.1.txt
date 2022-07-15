@@ -1,0 +1,188 @@
+Reading training data
+Sequences loaded : [1280]
+
+Model type : Perceptron
+hidden_layer_sizes : [2, 3, 5, 10, 15, 20]
+solvers : ('sgd', 'lbfgs')
+noOfFolds : 10
+random_state : 27
+Training model (scaled)
+Fitting 10 folds for each of 12 candidates, totalling 120 fits
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 1/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.914 total time= 1.8min
+[CV 2/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.891 total time= 1.7min
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 3/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.797 total time= 1.8min
+[CV 4/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.922 total time=  25.8s
+[CV 5/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.898 total time= 1.6min
+[CV 6/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.922 total time=  41.7s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 7/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.812 total time= 1.8min
+[CV 8/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.984 total time= 1.4min
+[CV 9/10] END .hidden_layer_sizes=2, solver=sgd;, score=0.984 total time=  45.5s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 10/10] END hidden_layer_sizes=2, solver=sgd;, score=1.000 total time= 1.8min
+[CV 1/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.852 total time=  17.8s
+[CV 2/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.891 total time=   7.8s
+[CV 3/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.906 total time=   7.4s
+[CV 4/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.625 total time=   8.0s
+[CV 5/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.953 total time=  10.6s
+[CV 6/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.961 total time=  10.8s
+[CV 7/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.930 total time=  13.2s
+[CV 8/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.977 total time=  30.8s
+[CV 9/10] END hidden_layer_sizes=2, solver=lbfgs;, score=0.930 total time=   7.1s
+[CV 10/10] END hidden_layer_sizes=2, solver=lbfgs;, score=1.000 total time=  15.6s
+[CV 1/10] END .hidden_layer_sizes=3, solver=sgd;, score=1.000 total time=  35.0s
+[CV 2/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.977 total time=  52.0s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 3/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.914 total time= 1.8min
+[CV 4/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.938 total time=  46.6s
+[CV 5/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.961 total time=  57.7s
+[CV 6/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.984 total time=  21.1s
+[CV 7/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.977 total time=  42.5s
+[CV 8/10] END .hidden_layer_sizes=3, solver=sgd;, score=0.992 total time= 1.2min
+[CV 9/10] END .hidden_layer_sizes=3, solver=sgd;, score=1.000 total time= 1.4min
+[CV 10/10] END hidden_layer_sizes=3, solver=sgd;, score=0.898 total time= 1.5min
+[CV 1/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.953 total time=  13.1s
+[CV 2/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.992 total time=   6.0s
+[CV 3/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.938 total time=   6.6s
+[CV 4/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.570 total time=  13.0s
+[CV 5/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.836 total time=  25.3s
+[CV 6/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.938 total time=   7.5s
+[CV 7/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.969 total time=  21.2s
+[CV 8/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.977 total time=   8.2s
+[CV 9/10] END hidden_layer_sizes=3, solver=lbfgs;, score=0.867 total time=  14.2s
+[CV 10/10] END hidden_layer_sizes=3, solver=lbfgs;, score=1.000 total time=   8.8s
+[CV 1/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.992 total time=  35.5s
+[CV 2/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.984 total time=  32.7s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 3/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.945 total time= 1.9min
+[CV 4/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.938 total time=  42.3s
+[CV 5/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.828 total time= 1.5min
+[CV 6/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.984 total time= 1.5min
+[CV 7/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.969 total time=  19.3s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 8/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.992 total time= 1.9min
+[CV 9/10] END .hidden_layer_sizes=5, solver=sgd;, score=0.883 total time=  31.0s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+[CV 10/10] END hidden_layer_sizes=5, solver=sgd;, score=0.898 total time= 1.9min
+[CV 1/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.992 total time=   9.0s
+[CV 2/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.977 total time=  32.3s
+[CV 3/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.938 total time=   7.4s
+[CV 4/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.695 total time=  12.1s
+[CV 5/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.984 total time=  15.5s
+[CV 6/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.977 total time=  18.5s
+[CV 7/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.969 total time=  11.0s
+[CV 8/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.969 total time=  11.0s
+[CV 9/10] END hidden_layer_sizes=5, solver=lbfgs;, score=0.961 total time=  16.6s
+[CV 10/10] END hidden_layer_sizes=5, solver=lbfgs;, score=1.000 total time=  17.6s
+[CV 1/10] END hidden_layer_sizes=10, solver=sgd;, score=1.000 total time=  33.0s
+[CV 2/10] END hidden_layer_sizes=10, solver=sgd;, score=0.977 total time=  43.9s
+[CV 3/10] END hidden_layer_sizes=10, solver=sgd;, score=0.930 total time= 1.6min
+[CV 4/10] END hidden_layer_sizes=10, solver=sgd;, score=0.867 total time= 1.1min
+[CV 5/10] END hidden_layer_sizes=10, solver=sgd;, score=0.953 total time=  33.1s
+[CV 6/10] END hidden_layer_sizes=10, solver=sgd;, score=0.992 total time= 1.1min
+[CV 7/10] END hidden_layer_sizes=10, solver=sgd;, score=0.984 total time= 1.6min
+[CV 8/10] END hidden_layer_sizes=10, solver=sgd;, score=1.000 total time=  54.1s
+[CV 9/10] END hidden_layer_sizes=10, solver=sgd;, score=0.969 total time=  52.0s
+[CV 10/10] END hidden_layer_sizes=10, solver=sgd;, score=1.000 total time=  22.2s
+[CV 1/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.969 total time=  16.8s
+[CV 2/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.945 total time=  13.7s
+[CV 3/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.922 total time=  12.4s
+[CV 4/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.898 total time=  14.9s
+[CV 5/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.953 total time=  31.4s
+[CV 6/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.953 total time=  18.8s
+[CV 7/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.914 total time=  38.5s
+[CV 8/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.977 total time=  16.9s
+[CV 9/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.953 total time=  33.4s
+[CV 10/10] END hidden_layer_sizes=10, solver=lbfgs;, score=0.938 total time=  20.1s
+[CV 1/10] END hidden_layer_sizes=15, solver=sgd;, score=0.992 total time= 1.9min
+[CV 2/10] END hidden_layer_sizes=15, solver=sgd;, score=0.961 total time=  57.2s
+[CV 3/10] END hidden_layer_sizes=15, solver=sgd;, score=0.922 total time= 1.1min
+[CV 4/10] END hidden_layer_sizes=15, solver=sgd;, score=0.898 total time=  51.6s
+[CV 5/10] END hidden_layer_sizes=15, solver=sgd;, score=0.945 total time=  45.0s
+[CV 6/10] END hidden_layer_sizes=15, solver=sgd;, score=0.984 total time=  29.3s
+[CV 7/10] END hidden_layer_sizes=15, solver=sgd;, score=0.969 total time= 1.3min
+[CV 8/10] END hidden_layer_sizes=15, solver=sgd;, score=0.992 total time=  29.2s
+[CV 9/10] END hidden_layer_sizes=15, solver=sgd;, score=0.977 total time= 2.4min
+[CV 10/10] END hidden_layer_sizes=15, solver=sgd;, score=1.000 total time= 3.1min
+[CV 1/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.961 total time=  23.0s
+[CV 2/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.961 total time=  22.4s
+[CV 3/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.922 total time=  21.8s
+[CV 4/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.898 total time=  18.7s
+[CV 5/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.930 total time=  23.2s
+[CV 6/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.977 total time=  24.2s
+[CV 7/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.961 total time=  24.6s
+[CV 8/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.961 total time=  22.5s
+[CV 9/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.945 total time=  23.2s
+[CV 10/10] END hidden_layer_sizes=15, solver=lbfgs;, score=0.922 total time=  22.3s
+[CV 1/10] END hidden_layer_sizes=20, solver=sgd;, score=1.000 total time=  32.9s
+[CV 2/10] END hidden_layer_sizes=20, solver=sgd;, score=0.969 total time= 1.1min
+[CV 3/10] END hidden_layer_sizes=20, solver=sgd;, score=0.906 total time= 1.4min
+[CV 4/10] END hidden_layer_sizes=20, solver=sgd;, score=0.891 total time= 1.8min
+[CV 5/10] END hidden_layer_sizes=20, solver=sgd;, score=0.930 total time=  42.3s
+[CV 6/10] END hidden_layer_sizes=20, solver=sgd;, score=0.984 total time=  45.5s
+[CV 7/10] END hidden_layer_sizes=20, solver=sgd;, score=0.977 total time=  45.7s
+[CV 8/10] END hidden_layer_sizes=20, solver=sgd;, score=1.000 total time= 1.1min
+[CV 9/10] END hidden_layer_sizes=20, solver=sgd;, score=0.945 total time=  36.1s
+[CV 10/10] END hidden_layer_sizes=20, solver=sgd;, score=1.000 total time= 1.7min
+[CV 1/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.961 total time=  32.9s
+[CV 2/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.977 total time=  30.9s
+[CV 3/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.914 total time=  19.5s
+[CV 4/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.914 total time=  26.7s
+[CV 5/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.938 total time=  32.7s
+[CV 6/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.969 total time=  26.9s
+[CV 7/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.953 total time=  32.6s
+[CV 8/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.992 total time=  59.5s
+[CV 9/10] END hidden_layer_sizes=20, solver=lbfgs;, score=0.992 total time=  36.7s
+[CV 10/10] END hidden_layer_sizes=20, solver=lbfgs;, score=1.000 total time=  45.5s
+C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:702: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
+  warnings.warn(
+--- 5521.013581752777 seconds ---
+Scores : {'mean_fit_time': array([82.02306721, 13.00609303, 60.91412637, 12.47279565, 67.4215507 ,
+       15.17919924, 56.13050065, 21.78064344, 79.75930057, 22.65744426,
+       62.13172979, 34.46014855]), 'std_fit_time': array([30.08644019,  6.90703748, 25.58763176,  6.1442759 , 36.52329896,
+        6.73627841, 23.74621707,  8.73881427, 48.81335893,  1.52043738,
+       25.49166355, 10.54768725]), 'mean_score_time': array([0.01767237, 0.01570683, 0.01606553, 0.01670775, 0.01606858,
+       0.01600287, 0.01860056, 0.01670189, 0.02133565, 0.02841775,
+       0.02270434, 0.03619976]), 'std_score_time': array([0.00289059, 0.00045962, 0.0003092 , 0.00214544, 0.00070142,
+       0.00063102, 0.00316737, 0.00045776, 0.00046549, 0.00491915,
+       0.00148773, 0.00615716]), 'param_hidden_layer_sizes': masked_array(data=[2, 2, 3, 3, 5, 5, 10, 10, 15, 15, 20, 20],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'lbfgs', 'sgd', 'lbfgs', 'sgd', 'lbfgs', 'sgd',
+                   'lbfgs', 'sgd', 'lbfgs', 'sgd', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'hidden_layer_sizes': 2, 'solver': 'sgd'}, {'hidden_layer_sizes': 2, 'solver': 'lbfgs'}, {'hidden_layer_sizes': 3, 'solver': 'sgd'}, {'hidden_layer_sizes': 3, 'solver': 'lbfgs'}, {'hidden_layer_sizes': 5, 'solver': 'sgd'}, {'hidden_layer_sizes': 5, 'solver': 'lbfgs'}, {'hidden_layer_sizes': 10, 'solver': 'sgd'}, {'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'hidden_layer_sizes': 15, 'solver': 'sgd'}, {'hidden_layer_sizes': 15, 'solver': 'lbfgs'}, {'hidden_layer_sizes': 20, 'solver': 'sgd'}, {'hidden_layer_sizes': 20, 'solver': 'lbfgs'}], 'split0_test_score': array([0.9140625, 0.8515625, 1.       , 0.953125 , 0.9921875, 0.9921875,
+       1.       , 0.96875  , 0.9921875, 0.9609375, 1.       , 0.9609375]), 'split1_test_score': array([0.890625 , 0.890625 , 0.9765625, 0.9921875, 0.984375 , 0.9765625,
+       0.9765625, 0.9453125, 0.9609375, 0.9609375, 0.96875  , 0.9765625]), 'split2_test_score': array([0.796875 , 0.90625  , 0.9140625, 0.9375   , 0.9453125, 0.9375   ,
+       0.9296875, 0.921875 , 0.921875 , 0.921875 , 0.90625  , 0.9140625]), 'split3_test_score': array([0.921875 , 0.625    , 0.9375   , 0.5703125, 0.9375   , 0.6953125,
+       0.8671875, 0.8984375, 0.8984375, 0.8984375, 0.890625 , 0.9140625]), 'split4_test_score': array([0.8984375, 0.953125 , 0.9609375, 0.8359375, 0.828125 , 0.984375 ,
+       0.953125 , 0.953125 , 0.9453125, 0.9296875, 0.9296875, 0.9375   ]), 'split5_test_score': array([0.921875 , 0.9609375, 0.984375 , 0.9375   , 0.984375 , 0.9765625,
+       0.9921875, 0.953125 , 0.984375 , 0.9765625, 0.984375 , 0.96875  ]), 'split6_test_score': array([0.8125   , 0.9296875, 0.9765625, 0.96875  , 0.96875  , 0.96875  ,
+       0.984375 , 0.9140625, 0.96875  , 0.9609375, 0.9765625, 0.953125 ]), 'split7_test_score': array([0.984375 , 0.9765625, 0.9921875, 0.9765625, 0.9921875, 0.96875  ,
+       1.       , 0.9765625, 0.9921875, 0.9609375, 1.       , 0.9921875]), 'split8_test_score': array([0.984375 , 0.9296875, 1.       , 0.8671875, 0.8828125, 0.9609375,
+       0.96875  , 0.953125 , 0.9765625, 0.9453125, 0.9453125, 0.9921875]), 'split9_test_score': array([1.       , 1.       , 0.8984375, 1.       , 0.8984375, 1.       ,
+       1.       , 0.9375   , 1.       , 0.921875 , 1.       , 1.       ]), 'mean_test_score': array([0.9125    , 0.90234375, 0.9640625 , 0.90390625, 0.94140625,
+       0.94609375, 0.9671875 , 0.9421875 , 0.9640625 , 0.94375   ,
+       0.96015625, 0.9609375 ]), 'std_test_score': array([0.0649707 , 0.10109568, 0.03408973, 0.12183743, 0.05266923,
+       0.08518491, 0.03980544, 0.02322823, 0.0314835 , 0.02338536,
+       0.03818547, 0.02964635]), 'rank_test_score': array([10, 12,  2, 11,  9,  6,  1,  8,  2,  7,  5,  4])}
+Reading testing data
+Sequences loaded : [130]
+
+Testing model
+Best score : 0.9692307692307692
+Best params : {'hidden_layer_sizes': 10, 'solver': 'sgd'}
+--- 5973.2273581027985 seconds ---

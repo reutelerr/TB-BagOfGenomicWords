@@ -17,7 +17,8 @@ def displayHelp():
         " convertCSVtoFASTA <csvFilePath> <fastaFilePath>\n\n"
         " findAlignments <sequenceFilePath>\n\n"
         " splitTrainingAndTesting <sequenceFilePath> <labelFilePath> <trainingFilePath> <trainingLabelPath> <testingFilePath> <testingLabelPath>\n\n"
-        " injectSequence <seqFilePath> <newSeqFilePath> <labelFilePath>"
+        " injectSequence <seqFilePath> <newSeqFilePath> <labelFilePath>\n\n"
+        " train <modelType> <trainingBOWsFilePath> <trainingLabelsFilePath> <testingBOWsFilePath> <testingLabelsFilePath>\n\n"
     )
 
 
@@ -67,5 +68,37 @@ if (sys.argv[1] == "injectSequence"):
 
 if (sys.argv[1] == "train"):
     start_time = time.time()
-    modelTrainingAndTesting.trainAndTestKNN(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
+    modelTrainingAndTesting.trainAndTestModel(sys.argv[2], sys.argv[3], sys.argv[4], sys.argv[5], sys.argv[6])
     print("--- %s seconds ---" % (time.time() - start_time))
+
+if (sys.argv[1] == "testVariability"):
+    sourcePath = "sequences/PhageContigsSeq/PhageContigsSeq.csv"
+    injectedSeqPath = "sequences/InjectedPhageContigsSeq/InjectedPhageContigsSeq.csv"
+    labelsPath = "sequences/InjectedPhageContigsSeq/labels.txt"
+    trainingSeqPath = "sequences/InjectedPhageContigsSeq/Training/seq.csv"
+    trainingLabelsPath = "sequences/InjectedPhageContigsSeq/Training/labels.txt"
+    testingSeqPath = "sequences/InjectedPhageContigsSeq/Testing/seq.csv"
+    testingLabelsPath = "sequences/InjectedPhageContigsSeq/Testing/labels.txt"
+    trainingBOWsPath = "sequences/InjectedPhageContigsSeq/Training/Seq_BOW.json"
+    testingBOWsPath = "sequences/InjectedPhageContigsSeq/Testing/Seq_BOW.json"
+    dictionaryPath = "kmerDictionaries/dic10"
+
+    start_time = time.time()
+    for i in range(0, 10):
+        variability = i*0.05
+        print("Injecting Sequence, variability : "+str(variability))
+        injectSequence(sourcePath, injectedSeqPath, labelsPath, variability=variability)
+        if i==0:
+            print("Building dictionary")
+            ReadSequenceFile(NEW, dictionaryPath, injectedSeqPath)
+            print("Filtering dictionary")
+            Filter('kmerDictionaries/dic10')
+        print("Splitting training and testing data")
+        utils.splitTrainingAndTesting(injectedSeqPath, labelsPath, trainingSeqPath, trainingLabelsPath, testingSeqPath, testingLabelsPath)
+        print("Making BOWs (training)")
+        ReadSequenceFile(makeBOW, dictionaryPath, trainingSeqPath, trainingBOWsPath)
+        print("Making BOWs (testing)")
+        ReadSequenceFile(makeBOW, dictionaryPath, testingSeqPath, testingBOWsPath)
+        print("Building model")
+        modelTrainingAndTesting.trainAndTestModel("Perceptron", trainingBOWsPath, trainingLabelsPath, testingBOWsPath, testingLabelsPath, verbose=3)
+        print("\n-------------------------------\n")

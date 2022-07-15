@@ -8,7 +8,7 @@ from Bio.pairwise2 import format_alignment
 from tqdm import tqdm
 from matplotlib import pyplot
 
-from src.constants import CSV
+from src.constants import CSV, nucleotideValues
 from src.utils import blocks
 
 injectedSequence = 'gcaattagatctaatgggacggaggcct'
@@ -53,7 +53,18 @@ def needlemanWunschInjectedSequence(fastaFilePath, outputPath  = None):
         pyplot.show()
     #Best alignement to date : gcaatta--gatctaat-gg-gacggaggc--ct with a score of 22.5 / 28
 
-def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequence, rate = 0.5, sourceType = CSV):
+
+def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequence, rate = 0.5, variability = 0.05, sourceType = CSV):
+    '''
+    @param seqFilePath:
+    @param newFilePath:
+    @param labelFilePath:
+    @param seq:
+    @param rate: Proportion of genomes that will have the sequence inserted
+    @param variability: injectedSequence variability, i.e. the probability that every nucleotide will be randomly replaced
+    @param sourceType:
+    @return:
+    '''
 
     random.seed()
     seqFile = open(seqFilePath, "r")
@@ -67,6 +78,16 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequen
         line = seqFile.readline()
         while line:
             if random.random()<rate :
+                sequenceToBeInjected = ""
+                if variability>0:
+                    for i in range(len(seq)):
+                        if random.random()<variability:
+                            sequenceToBeInjected += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
+                        else:
+                            sequenceToBeInjected += seq[i]
+                else:
+                    sequenceToBeInjected = seq
+
                 label = 1
                 seqStart = line.rindex(',')+1
                 insertIndex = random.randint(seqStart, len(line)-1)
@@ -74,10 +95,14 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequen
                     raise Exception('must not insert at beginning of line')
                 if not line[insertIndex:len(line)]:
                     raise Exception('must not insert AFTER line')
-                newFile.write(line[0:insertIndex]+seq+line[insertIndex:len(line)])
+                newFile.write(line[0:insertIndex]+sequenceToBeInjected+line[insertIndex:len(line)])
 
             else:
                 label = 0
                 newFile.write(line)
             labelFile.write(str(label)+'\n')
             line = seqFile.readline()
+
+    seqFile.close()
+    newFile.close()
+    labelFile.close()

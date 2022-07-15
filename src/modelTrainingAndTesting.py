@@ -38,7 +38,9 @@ def prepareData(seqFilePath, labelsFilePath):
     seq_BOWs = [counts for (index, nulceotideCount, vecLength, counts) in data]
     countValues = numpy.array([list(seq_BOW.values()) for seq_BOW in seq_BOWs])
     labels = labelsFile.readlines()
-    return  countValues, labels
+    seqFile.close()
+    labelsFile.close()
+    return (countValues, labels)
 
 @timerWrapper
 def trainModel(model, dataset, labels):
@@ -46,7 +48,7 @@ def trainModel(model, dataset, labels):
     return model
 
 
-def trainAndTestKNN(modelType, trainingFilePath, trainingLabelsFilePath, testingFilePath, testingLabelsFilePath):
+def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testingFilePath, testingLabelsFilePath, verbose=1):
     random.seed()
 
     print("Reading training data")
@@ -63,18 +65,21 @@ def trainAndTestKNN(modelType, trainingFilePath, trainingLabelsFilePath, testing
         model = KNeighborsClassifier(n_neighbors=n_neighbors)
         print("n_neighbors : "+str(n_neighbors))
     if modelType== "Perceptron":
-        hidden_layer_sizes = [(3), (15), (10), (15), (10, 3), (15, 3)]
-        solvers = ('sgd', 'lbfgs')
-        parameters = {'hidden_layer_sizes':hidden_layer_sizes, 'solver':('sgd', 'lbfgs')}
+        hidden_layer_sizes = [(5), (10), (15)]
+        solvers = ['lbfgs', 'sgd']
+        parameters = {'hidden_layer_sizes':hidden_layer_sizes, 'solver':solvers}
+        noOfFolds = 5
         random_state = random.randint(1, 100)
         model = MLPClassifier()
-        gridSearcher = GridSearchCV(model, parameters, cv=5, scoring='accuracy', verbose=4)
+        gridSearcher = GridSearchCV(model, parameters, cv=noOfFolds, scoring='accuracy', verbose=verbose)
         print("hidden_layer_sizes : "+str(hidden_layer_sizes))
-        print("Solvers : "+str(solvers))
+        print("solvers : "+str(solvers))
+        print("noOfFolds : "+str(noOfFolds))
         print("random_state : "+str(random_state))
 
     print("Training model (scaled)")
     (gridSearcher) = trainModel(gridSearcher, scaledTrainingBOWs, trainingLabels)
+    print("Scores : "+str(gridSearcher.cv_results_))
 
     print("Reading testing data")
     (testingBOWs, testingLabels) = prepareData(testingFilePath, testingLabelsFilePath)
@@ -82,7 +87,7 @@ def trainAndTestKNN(modelType, trainingFilePath, trainingLabelsFilePath, testing
 
     print("Testing model")
     testing_scaled_score = gridSearcher.score(scaledTestingBOWs, testingLabels)
-    print('->' + str(testing_scaled_score))
+    print("Best score : "+str(testing_scaled_score))
     print("Best params : "+str(gridSearcher.best_params_))
 
 
