@@ -7,8 +7,16 @@ import sklearn
 from sklearn.model_selection import cross_val_score, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
+import warnings
+
 
 from src.utils import timerWrapper
+from src.constants import metaParameters
+
+metaParams = metaParameters.get('modelTraining')
+cvFolds = metaParams.get('cvFolds')
+gridSearchParams = metaParams.get('gridSearchParams')
+scoring = metaParams.get('scoring')
 
 
 def readBOWFile(seqFile):
@@ -65,30 +73,24 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
         model = KNeighborsClassifier(n_neighbors=n_neighbors)
         print("n_neighbors : "+str(n_neighbors))
     if modelType== "Perceptron":
-        hidden_layer_sizes = [(5), (10), (15)]
-        solvers = ['lbfgs', 'sgd']
-        parameters = {'hidden_layer_sizes':hidden_layer_sizes, 'solver':solvers}
-        noOfFolds = 5
         random_state = random.randint(1, 100)
-        model = MLPClassifier()
-        gridSearcher = GridSearchCV(model, parameters, cv=noOfFolds, scoring='accuracy', verbose=verbose)
-        print("hidden_layer_sizes : "+str(hidden_layer_sizes))
-        print("solvers : "+str(solvers))
-        print("noOfFolds : "+str(noOfFolds))
+        model = MLPClassifier(max_iter=500)
+        gridSearcher = GridSearchCV(model, gridSearchParams, cv=cvFolds, scoring=scoring, verbose=verbose)
+        print(metaParams)
         print("random_state : "+str(random_state))
 
-    print("Training model (scaled)")
+    print("\nTraining model (scaled)")
     (gridSearcher) = trainModel(gridSearcher, scaledTrainingBOWs, trainingLabels)
     print("Scores : "+str(gridSearcher.cv_results_))
+    print("Best params : " + str(gridSearcher.best_params_))
+    print("Best mean cross-validation score : " + str(max(gridSearcher.cv_results_['mean_test_score'])))
 
-    print("Reading testing data")
+    print("\nReading testing data")
     (testingBOWs, testingLabels) = prepareData(testingFilePath, testingLabelsFilePath)
     scaledTestingBOWs = sklearn.preprocessing.scale(testingBOWs)
-
     print("Testing model")
     testing_scaled_score = gridSearcher.score(scaledTestingBOWs, testingLabels)
-    print("Best score : "+str(testing_scaled_score))
-    print("Best params : "+str(gridSearcher.best_params_))
+    print("Testing data score : " + str(testing_scaled_score))
 
 
 

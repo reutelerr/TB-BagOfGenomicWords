@@ -3,6 +3,11 @@ import random
 import time
 
 from tqdm import tqdm
+from statistics import mean
+from matplotlib import pyplot
+
+from src.constants import metaParameters
+
 
 def blocks(file, size=65536):
     while True:
@@ -51,6 +56,10 @@ def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingSeqFilePath, tra
 
     random.seed()
 
+    headerLine = seqFile.readline()
+    headers = headerLine.split(',')
+    testingSeqFile.write(headerLine)
+    trainingSeqFile.write(headerLine)
     line = seqFile.readline()
     label = labelFile.readline()
 
@@ -71,11 +80,45 @@ def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingSeqFilePath, tra
     testingSeqFile.close()
     testingLabelFile.close()
 
+def getSequenceLengths(seqFilePath):
+    seqLengths = []
+    seqFile = open(seqFilePath)
+
+    headerLine = seqFile.readline()
+    headers = headerLine.split(',')
+    line = seqFile.readline()
+    while line:
+        lineElements = line.split(',')
+        id = lineElements[0]
+        sequence = lineElements[-1].lower()
+        seqLengths.append(len(sequence))
+        line = seqFile.readline()
+    print("Number of sequences :"+str(len(seqLengths)))
+    return seqLengths
+
+def saveToFile(data, resultsFilePath = 'results.txt'):
+    resultsFile = open(resultsFilePath, "a")
+    resultsFile.write(data)
+    resultsFile.close()
+
+def plotAverageFoldLength(sequenceLengths, cvFolds = metaParameters['modelTraining']['cvFolds']):
+    meanSeqLengths = []
+    cvFolds = int(cvFolds)
+    for i in range(0, cvFolds):
+        foldStart = int(i*len(sequenceLengths)/cvFolds)
+        foldEnd = int((i+1)*len(sequenceLengths)/cvFolds) #Not included
+        meanSeqLength = mean(sequenceLengths[foldStart:foldEnd])
+        meanSeqLengths.append(meanSeqLength)
+    pyplot.bar(range(1, 6), meanSeqLengths)
+    pyplot.xlabel('CV-fold')
+    pyplot.ylabel('Average Sequence Length')
+    pyplot.show()
+
 def timerWrapper(func):
     def wrap(*args, **kwargs):
         start = time.time()
         result = func(*args, **kwargs)
-        print("--- %s seconds ---" % (time.time() - start))
+        print("%s executed in --- %s seconds ---" % (func.__name__, time.time() - start))
         return result
 
     return wrap

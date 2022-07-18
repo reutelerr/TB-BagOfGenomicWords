@@ -8,10 +8,8 @@ from Bio.pairwise2 import format_alignment
 from tqdm import tqdm
 from matplotlib import pyplot
 
-from src.constants import CSV, nucleotideValues
+from src.constants import CSV, nucleotideValues, metaParameters
 from src.utils import blocks
-
-injectedSequence = 'gcaattagatctaatgggacggaggcct'
 
 def needlemanWunschInjectedSequence(fastaFilePath, outputPath  = None):
     fastafile = open(fastaFilePath)
@@ -54,17 +52,12 @@ def needlemanWunschInjectedSequence(fastaFilePath, outputPath  = None):
     #Best alignement to date : gcaatta--gatctaat-gg-gacggaggc--ct with a score of 22.5 / 28
 
 
-def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequence, rate = 0.5, variability = 0.05, sourceType = CSV):
-    '''
-    @param seqFilePath:
-    @param newFilePath:
-    @param labelFilePath:
-    @param seq:
-    @param rate: Proportion of genomes that will have the sequence inserted
-    @param variability: injectedSequence variability, i.e. the probability that every nucleotide will be randomly replaced
-    @param sourceType:
-    @return:
-    '''
+def injectSequence(seqFilePath, newFilePath, labelFilePath, sourceType=CSV):
+
+    metaParams = metaParameters.get('sequenceInjection')
+    injectedSequence = metaParams.get('injectedSequence')
+    injectionRate = metaParams.get('injectionRate')
+    variability = metaParams.get('variability')
 
     random.seed()
     seqFile = open(seqFilePath, "r")
@@ -72,21 +65,22 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequen
     newFile = open(newFilePath, "w")
     labelFile = open(labelFilePath, "w")
 
-
     if sourceType == CSV:
-        headers = seqFile.readline().split(',')
+        headerLine = seqFile.readline()
+        headers = headerLine.split(',')
+        newFile.write(headerLine)
         line = seqFile.readline()
         while line:
-            if random.random()<rate :
-                sequenceToBeInjected = ""
+            if random.random()<injectionRate :
+                modifiedSequence = ""
                 if variability>0:
-                    for i in range(len(seq)):
+                    for i in range(len(injectedSequence)):
                         if random.random()<variability:
-                            sequenceToBeInjected += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
+                            modifiedSequence += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
                         else:
-                            sequenceToBeInjected += seq[i]
+                            modifiedSequence += injectedSequence[i]
                 else:
-                    sequenceToBeInjected = seq
+                    modifiedSequence = injectedSequence
 
                 label = 1
                 seqStart = line.rindex(',')+1
@@ -95,7 +89,7 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, seq = injectedSequen
                     raise Exception('must not insert at beginning of line')
                 if not line[insertIndex:len(line)]:
                     raise Exception('must not insert AFTER line')
-                newFile.write(line[0:insertIndex]+sequenceToBeInjected+line[insertIndex:len(line)])
+                newFile.write(line[0:insertIndex]+modifiedSequence+line[insertIndex:len(line)])
 
             else:
                 label = 0

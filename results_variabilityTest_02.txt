@@ -1,0 +1,845 @@
+"C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\venv\Scripts\python.exe" -Wignore "C:/Cours/TB-Bag of genomic words/TB-BagOfGenomicWords/src/main.py" testVariability
+Console output is saving to: C:\Cours\TB-Bag of genomic words\TB-BagOfGenomicWords\console_output.txt
+Injecting Sequence, variability : 0.0
+Building dictionary
+Total number of lines in file : 1411
+Counting K-mers of length : 10
+100%|█████████▉| 1410/1411 [00:08<00:00, 168.08it/s]
+Counting K-mers of length : 9
+100%|█████████▉| 1410/1411 [00:05<00:00, 243.99it/s]
+  0%|          | 0/1411 [00:00<?, ?it/s]Counting K-mers of length : 8
+100%|█████████▉| 1410/1411 [00:04<00:00, 321.00it/s]
+Counting K-mers of length : 7
+100%|█████████▉| 1410/1411 [00:03<00:00, 369.11it/s]
+Counting K-mers of length : 6
+100%|█████████▉| 1410/1411 [00:03<00:00, 398.19it/s]
+Counting K-mers of length : 5
+100%|█████████▉| 1410/1411 [00:03<00:00, 400.80it/s]
+Counting K-mers of length : 4
+100%|█████████▉| 1410/1411 [00:03<00:00, 418.27it/s]
+Counting K-mers of length : 3
+100%|█████████▉| 1410/1411 [00:03<00:00, 466.42it/s]
+--- 36.01551866531372 seconds ---
+Filtering dictionary
+100%|██████████| 1033635/1033635 [00:00<00:00, 3576582.42it/s]
+100%|██████████| 262115/262115 [00:00<00:00, 3542020.37it/s]
+100%|██████████| 65560/65560 [00:00<00:00, 3856587.85it/s]
+100%|██████████| 16405/16405 [00:00<00:00, 4101058.36it/s]
+100%|██████████| 4114/4114 [00:00<00:00, 4114298.20it/s]
+100%|██████████| 1039/1039 [00:00<?, ?it/s]
+100%|██████████| 268/268 [00:00<?, ?it/s]
+100%|██████████| 73/73 [00:00<?, ?it/s]
+--- 0.792999267578125 seconds ---
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1281
+100%|█████████▉| 1280/1281 [00:29<00:00, 43.97it/s]
+--- 29.19701647758484 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 131
+ 99%|█████████▉| 130/131 [00:03<00:00, 42.26it/s]
+--- 3.110999822616577 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1280]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 23
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 199.392676115036 seconds ---
+Scores : {'mean_fit_time': array([4.11939974, 5.0967041 , 2.84798827, 2.73927865, 2.42299995,
+       1.82120008, 1.21039238, 1.33579907, 1.07940001, 0.73573899,
+       0.7256484 , 1.10100689, 1.9915379 , 1.94299898, 1.89999285,
+       0.88744712, 0.77881069, 1.45139294, 0.96019969, 0.73620939,
+       1.15819936, 0.69099965, 0.75220532, 0.81958847]), 'std_fit_time': array([2.36323578, 2.4985795 , 0.70074003, 1.02803399, 0.40302455,
+       0.69513389, 0.44824396, 0.65218481, 0.68249056, 0.20635808,
+       0.1008703 , 0.43617468, 1.83523136, 0.85677875, 0.22352519,
+       0.36100916, 0.16918577, 0.75288341, 0.64772052, 0.11722583,
+       0.6934211 , 0.1813419 , 0.106849  , 0.11540493]), 'mean_score_time': array([0.0042058 , 0.00417008, 0.00460172, 0.00400481, 0.00420461,
+       0.00460339, 0.00440297, 0.0041955 , 0.00460396, 0.00420594,
+       0.004602  , 0.00418315, 0.00420537, 0.00440383, 0.00500169,
+       0.00420413, 0.00460563, 0.00420475, 0.00440526, 0.00418763,
+       0.00460153, 0.00400419, 0.00440216, 0.00440421]), 'std_score_time': array([3.98134773e-04, 4.12846140e-04, 4.89687362e-04, 2.05427735e-06,
+       3.98714158e-04, 4.87546233e-04, 4.88645275e-04, 4.03357463e-04,
+       7.98988983e-04, 3.97582408e-04, 4.86651589e-04, 4.09620510e-04,
+       3.98344083e-04, 5.01058004e-04, 6.33541335e-04, 3.98487412e-04,
+       5.04553779e-04, 3.99119737e-04, 7.98945077e-04, 4.04805749e-04,
+       4.90018786e-04, 2.93322687e-06, 4.89421720e-04, 4.88212388e-04]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.9921875 , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 0.9921875 , 1.        ,
+       0.9921875 , 0.9921875 , 1.        , 0.98828125, 0.98828125,
+       1.        , 0.99609375, 0.9921875 , 0.9921875 ]), 'split1_test_score': array([0.9609375 , 0.92578125, 0.98046875, 1.        , 0.953125  ,
+       0.96484375, 0.93359375, 0.96875   , 0.9609375 , 0.9375    ,
+       0.98046875, 0.9765625 , 0.83203125, 0.88671875, 0.8203125 ,
+       0.87109375, 0.92578125, 0.90234375, 0.83203125, 0.92578125,
+       0.859375  , 0.89453125, 0.9296875 , 0.94140625]), 'split2_test_score': array([1.        , 1.        , 0.99609375, 0.98828125, 0.99609375,
+       0.9921875 , 0.9921875 , 0.9921875 , 0.9921875 , 0.98046875,
+       0.9921875 , 0.9921875 , 0.98828125, 1.        , 0.984375  ,
+       0.94921875, 0.98046875, 0.9453125 , 0.984375  , 0.98046875,
+       0.98828125, 0.93359375, 0.94921875, 0.96875   ]), 'split3_test_score': array([1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 0.99609375,
+       1.        , 1.        , 1.        , 1.        ]), 'split4_test_score': array([1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 1.        ,
+       1.        , 1.        , 1.        , 1.        , 0.99609375,
+       1.        , 0.99609375, 1.        , 1.        ]), 'mean_test_score': array([0.990625  , 0.98515625, 0.9953125 , 0.99765625, 0.98984375,
+       0.99140625, 0.98515625, 0.9921875 , 0.990625  , 0.98359375,
+       0.99453125, 0.99375   , 0.9640625 , 0.97578125, 0.9609375 ,
+       0.9625    , 0.9796875 , 0.96953125, 0.9609375 , 0.97734375,
+       0.96953125, 0.9640625 , 0.97421875, 0.98046875]), 'std_test_score': array([0.015149  , 0.0296875 , 0.0075745 , 0.0046875 , 0.0184216 ,
+       0.01362156, 0.0259582 , 0.01210307, 0.015149  , 0.02425652,
+       0.00765466, 0.00911086, 0.06617146, 0.04463393, 0.07057244,
+       0.04944763, 0.02788526, 0.03971333, 0.06475427, 0.02642427,
+       0.05526481, 0.04267656, 0.02918991, 0.02264278]), 'rank_test_score': array([ 7, 10,  2,  1,  9,  6, 10,  5,  7, 12,  3,  4, 20, 16, 23, 22, 14,
+       18, 23, 15, 18, 20, 17, 13])}
+Best params : {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.99765625
+
+Reading testing data
+Sequences loaded : [130]
+
+Testing model
+Testing data score : 0.9923076923076923
+
+-------------------------------
+
+Injecting Sequence, variability : 0.05
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1262
+100%|█████████▉| 1261/1262 [00:28<00:00, 44.54it/s]
+--- 28.383999586105347 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 150
+ 99%|█████████▉| 149/150 [00:03<00:00, 39.31it/s]
+--- 3.815999984741211 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1261]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 57
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 611.0180978775024 seconds ---
+Scores : {'mean_fit_time': array([ 9.56060004, 10.03541212, 10.25878959,  6.4881999 ,  9.04456091,
+        8.00087428,  3.97218471,  4.26440816,  6.8089931 ,  3.57219949,
+        5.5443975 ,  4.14319921,  4.23060021,  4.42381334,  4.42118926,
+        3.20260034,  4.3411994 ,  4.91059966,  2.80540028,  2.57239938,
+        3.61859984,  1.59479985,  1.59580021,  1.99059987]), 'std_fit_time': array([2.49279486, 2.94706043, 2.99061836, 1.49506999, 3.83923514,
+       3.08714136, 2.16520511, 1.77883803, 2.54339627, 1.60727438,
+       4.18967374, 2.22219226, 2.25160176, 1.50983295, 2.28216737,
+       1.48210241, 3.01951363, 2.66996852, 1.39133361, 1.42115291,
+       1.62063377, 0.41291265, 0.77713076, 0.78373875]), 'mean_score_time': array([0.00460353, 0.00457931, 0.00440311, 0.00400562, 0.0041853 ,
+       0.00440416, 0.00400681, 0.00438957, 0.00420461, 0.00420599,
+       0.00399938, 0.0042027 , 0.00420427, 0.00396776, 0.00460477,
+       0.00400352, 0.00459285, 0.00480442, 0.00420494, 0.00439186,
+       0.00459623, 0.00420609, 0.00419588, 0.00440178]), 'std_score_time': array([7.98477093e-04, 5.16259878e-04, 4.89399675e-04, 2.67369190e-06,
+       4.06521187e-04, 4.87860125e-04, 5.10549882e-06, 5.01044081e-04,
+       3.98353386e-04, 3.97785474e-04, 1.19386541e-05, 3.99900375e-04,
+       3.98766716e-04, 2.92021398e-05, 7.98381149e-04, 4.10190833e-06,
+       7.76887010e-04, 9.78074466e-04, 3.97005191e-04, 4.98738146e-04,
+       4.96299871e-04, 3.97374517e-04, 4.03287811e-04, 4.89513061e-04]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.94466403, 0.94071146, 0.94071146, 0.9486166 , 0.93675889,
+       0.96442688, 0.9486166 , 0.95256917, 0.94466403, 0.96047431,
+       0.95256917, 0.96442688, 0.9486166 , 0.95652174, 0.96047431,
+       0.96047431, 0.95652174, 0.92094862, 0.96047431, 0.95652174,
+       0.9486166 , 0.94466403, 0.95256917, 0.96047431]), 'split1_test_score': array([0.77380952, 0.78174603, 0.77777778, 0.79761905, 0.82142857,
+       0.8531746 , 0.84126984, 0.80555556, 0.82539683, 0.78968254,
+       0.79365079, 0.79761905, 0.8531746 , 0.82539683, 0.83333333,
+       0.78174603, 0.86111111, 0.80555556, 0.8015873 , 0.79365079,
+       0.86904762, 0.77380952, 0.80952381, 0.8531746 ]), 'split2_test_score': array([0.90079365, 0.8968254 , 0.8968254 , 0.90079365, 0.8968254 ,
+       0.89285714, 0.9047619 , 0.92857143, 0.88095238, 0.90873016,
+       0.90873016, 0.91666667, 0.8968254 , 0.91666667, 0.92063492,
+       0.87301587, 0.91666667, 0.89285714, 0.90873016, 0.91269841,
+       0.90873016, 0.9047619 , 0.91269841, 0.92460317]), 'split3_test_score': array([0.96031746, 0.96428571, 0.95634921, 0.97222222, 0.97222222,
+       0.96031746, 0.98412698, 0.97619048, 0.96428571, 0.98015873,
+       0.97222222, 0.98015873, 0.98015873, 0.97222222, 0.98015873,
+       0.96428571, 0.97619048, 0.97619048, 0.97619048, 0.96428571,
+       0.97619048, 0.96031746, 0.96825397, 0.97222222]), 'split4_test_score': array([0.96428571, 0.96825397, 0.96031746, 0.96825397, 0.97222222,
+       0.97222222, 0.97222222, 0.95634921, 0.96428571, 0.96428571,
+       0.96428571, 0.96031746, 0.96825397, 0.97619048, 0.97619048,
+       0.97619048, 0.97222222, 0.97222222, 0.96031746, 0.96031746,
+       0.95634921, 0.96428571, 0.93650794, 0.94444444]), 'mean_test_score': array([0.90877408, 0.91036451, 0.90639626, 0.9175011 , 0.91989146,
+       0.92859966, 0.93019951, 0.92384717, 0.91591693, 0.92066629,
+       0.91829161, 0.92383776, 0.92940586, 0.92939959, 0.93415835,
+       0.91114248, 0.93654244, 0.9135548 , 0.92145994, 0.91749482,
+       0.93178681, 0.90956773, 0.91591066, 0.93098375]), 'std_test_score': array([0.07114136, 0.06914571, 0.06813904, 0.06509881, 0.05654823,
+       0.04724194, 0.05209381, 0.06105142, 0.05462945, 0.06975084,
+       0.06606917, 0.06653253, 0.04759574, 0.05610255, 0.05463301,
+       0.07441257, 0.04319518, 0.06246918, 0.06412325, 0.06466315,
+       0.03827807, 0.07107001, 0.05627859, 0.04206298]), 'rank_test_score': array([23, 21, 24, 15, 13,  8,  5,  9, 17, 12, 14, 10,  6,  7,  2, 20,  1,
+       19, 11, 16,  3, 22, 18,  4])}
+Best params : {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.9365424430641822
+
+Reading testing data
+Sequences loaded : [149]
+
+Testing model
+Testing data score : 0.9261744966442953
+
+-------------------------------
+
+Injecting Sequence, variability : 0.1
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1273
+100%|█████████▉| 1272/1273 [00:29<00:00, 43.71it/s]
+--- 29.17899990081787 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 139
+ 99%|█████████▉| 138/139 [00:03<00:00, 41.53it/s]
+--- 3.3519983291625977 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1272]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 14
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 1047.4237599372864 seconds ---
+Scores : {'mean_fit_time': array([ 9.92040062, 10.95521441, 12.45013943,  9.78327112, 10.86240506,
+       12.92098856,  5.44760051,  9.01840177, 10.69334879,  6.27805305,
+        8.82121296, 10.53998895,  4.94039984,  7.05580025,  9.56959987,
+        7.02239971,  9.71154118,  7.61738911,  4.76801047,  8.53200054,
+        7.27025599,  3.3474    ,  5.79349298, 13.84921627]), 'std_fit_time': array([1.62274425, 2.69828783, 3.52499437, 2.39105738, 2.94179938,
+       3.73655081, 1.77286878, 2.66579497, 3.74024757, 2.91975913,
+       2.86613989, 3.20444051, 2.79434399, 3.27279277, 3.91286957,
+       3.34891025, 3.45776198, 3.93251669, 2.77755414, 4.6799867 ,
+       4.29171805, 1.43243998, 4.45230437, 1.65818737]), 'mean_score_time': array([0.00420752, 0.00395184, 0.00400515, 0.00420461, 0.00438328,
+       0.00440516, 0.00400572, 0.0043941 , 0.00419292, 0.00440478,
+       0.00418124, 0.00420351, 0.00420556, 0.00400691, 0.00420265,
+       0.0040062 , 0.00419574, 0.004003  , 0.0044055 , 0.00400352,
+       0.00420513, 0.00420666, 0.00420017, 0.00400419]), 'std_score_time': array([3.97015277e-04, 1.62687447e-05, 3.12464808e-06, 3.98243238e-04,
+       4.90377984e-04, 4.86850566e-04, 3.11736281e-06, 5.05231874e-04,
+       4.04692615e-04, 4.87454280e-04, 4.10787742e-04, 3.98781210e-04,
+       3.98248006e-04, 3.95918441e-06, 3.99808078e-04, 4.13338336e-06,
+       3.96224892e-04, 1.51090427e-06, 4.87162731e-04, 4.68903342e-06,
+       3.98571366e-04, 3.97567510e-04, 4.00969795e-04, 2.14523733e-06]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.88235294, 0.89019608, 0.89803922, 0.89019608, 0.90980392,
+       0.89411765, 0.87058824, 0.8745098 , 0.88235294, 0.89411765,
+       0.89803922, 0.90196078, 0.91764706, 0.89019608, 0.88627451,
+       0.87058824, 0.90588235, 0.89019608, 0.89411765, 0.89411765,
+       0.90196078, 0.89411765, 0.88627451, 0.89803922]), 'split1_test_score': array([0.81568627, 0.82745098, 0.82352941, 0.82745098, 0.81568627,
+       0.85098039, 0.83529412, 0.89411765, 0.85490196, 0.81568627,
+       0.8745098 , 0.85490196, 0.8       , 0.81176471, 0.79215686,
+       0.78039216, 0.79607843, 0.81960784, 0.8627451 , 0.78823529,
+       0.79607843, 0.82745098, 0.83529412, 0.80392157]), 'split2_test_score': array([0.86220472, 0.88582677, 0.87007874, 0.8976378 , 0.86614173,
+       0.88976378, 0.86614173, 0.8503937 , 0.84251969, 0.88188976,
+       0.8976378 , 0.87401575, 0.84251969, 0.82677165, 0.87795276,
+       0.88582677, 0.87401575, 0.86614173, 0.87007874, 0.85433071,
+       0.88582677, 0.88188976, 0.86614173, 0.87007874]), 'split3_test_score': array([0.91338583, 0.90551181, 0.91732283, 0.91338583, 0.93700787,
+       0.90551181, 0.90944882, 0.92519685, 0.92913386, 0.91732283,
+       0.93307087, 0.91338583, 0.91732283, 0.90944882, 0.92125984,
+       0.92519685, 0.91732283, 0.91732283, 0.90944882, 0.91338583,
+       0.90551181, 0.90944882, 0.92125984, 0.91338583]), 'split4_test_score': array([0.95669291, 0.9488189 , 0.96062992, 0.94094488, 0.95669291,
+       0.96062992, 0.94094488, 0.95275591, 0.96456693, 0.94094488,
+       0.95669291, 0.9488189 , 0.95669291, 0.96062992, 0.94094488,
+       0.94094488, 0.95275591, 0.95669291, 0.96062992, 0.95275591,
+       0.96062992, 0.96062992, 0.95669291, 0.95669291]), 'mean_test_score': array([0.88606454, 0.89156091, 0.89392002, 0.89392311, 0.89706654,
+       0.90020071, 0.88448356, 0.89939478, 0.89469507, 0.88999228,
+       0.91199012, 0.89861664, 0.8868365 , 0.87976224, 0.88371777,
+       0.88058978, 0.88921105, 0.88999228, 0.89940405, 0.88056508,
+       0.89000154, 0.89470743, 0.89313262, 0.88842365]), 'std_test_score': array([0.04747839, 0.03903314, 0.04590885, 0.03751287, 0.05077784,
+       0.03535101, 0.03677023, 0.03622533, 0.04588289, 0.04230172,
+       0.02914834, 0.03245229, 0.05703189, 0.05470175, 0.05120063,
+       0.05621308, 0.05293531, 0.04630074, 0.03487493, 0.05600968,
+       0.05331217, 0.04301431, 0.04231285, 0.05070187]), 'rank_test_score': array([19, 12, 10,  9,  6,  2, 20,  4,  8, 14,  1,  5, 18, 24, 21, 22, 16,
+       15,  3, 23, 13,  7, 11, 17])}
+Best params : {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.9119901188821986
+
+Reading testing data
+Sequences loaded : [138]
+
+Testing model
+Testing data score : 0.8840579710144928
+
+-------------------------------
+
+Injecting Sequence, variability : 0.15000000000000002
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1260
+100%|█████████▉| 1259/1260 [00:28<00:00, 44.94it/s]
+--- 28.08899974822998 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 152
+ 99%|█████████▉| 151/152 [00:04<00:00, 36.87it/s]
+--- 4.129000186920166 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1259]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 49
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 1312.8842942714691 seconds ---
+Scores : {'mean_fit_time': array([10.02360015, 11.65001369, 12.56278892, 10.52045498, 12.85624161,
+       14.83139987, 10.59211869, 11.6218132 , 13.53839951, 11.78940053,
+       10.38160563, 15.68739357,  6.80860052, 11.35720105, 10.22459989,
+        8.09139962,  8.70140715,  9.11002803,  6.36799994,  9.57359996,
+       10.56520014,  7.71179991, 12.65802031, 12.56279302]), 'std_fit_time': array([0.9365307 , 1.94858175, 2.95387972, 2.15379921, 1.44178507,
+       2.29574274, 1.79262104, 2.85994106, 3.46368831, 0.5772881 ,
+       2.23499105, 0.92977403, 2.76921621, 1.42512013, 3.22885414,
+       2.67084755, 3.64302761, 3.61637831, 3.56025405, 3.79732073,
+       3.88274852, 3.35285888, 0.84223396, 3.66544515]), 'mean_score_time': array([0.00420537, 0.00438318, 0.00400333, 0.00400438, 0.00417876,
+       0.00460224, 0.00400372, 0.00417328, 0.00440354, 0.00400376,
+       0.00499086, 0.00440392, 0.00420346, 0.00437655, 0.00400276,
+       0.00400453, 0.00480194, 0.00460329, 0.00420432, 0.0042026 ,
+       0.00420418, 0.00400558, 0.0039784 , 0.00420408]), 'std_score_time': array([3.97880297e-04, 5.01179436e-04, 1.42573513e-06, 3.06662277e-06,
+       4.13173303e-04, 4.90116729e-04, 2.57403747e-06, 4.02661270e-04,
+       4.88657625e-04, 2.27186761e-06, 6.43865596e-04, 4.87761985e-04,
+       3.98692744e-04, 5.09440122e-04, 1.55539574e-06, 3.93325627e-06,
+       7.46658923e-04, 4.89320933e-04, 3.99099496e-04, 3.99232947e-04,
+       3.98804336e-04, 3.82243802e-06, 2.23877966e-05, 3.99094454e-04]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.82539683, 0.82936508, 0.83730159, 0.82539683, 0.83333333,
+       0.81349206, 0.8452381 , 0.81746032, 0.82539683, 0.82539683,
+       0.83333333, 0.82539683, 0.82936508, 0.84920635, 0.83333333,
+       0.83730159, 0.8452381 , 0.81349206, 0.82142857, 0.83730159,
+       0.82936508, 0.82539683, 0.81746032, 0.82539683]), 'split1_test_score': array([0.74206349, 0.75      , 0.72222222, 0.69444444, 0.67063492,
+       0.74603175, 0.71031746, 0.74603175, 0.72222222, 0.75793651,
+       0.74603175, 0.77777778, 0.73412698, 0.69444444, 0.75793651,
+       0.77380952, 0.69444444, 0.68253968, 0.69444444, 0.71825397,
+       0.74206349, 0.71031746, 0.71825397, 0.69444444]), 'split2_test_score': array([0.76587302, 0.78968254, 0.77380952, 0.78571429, 0.76587302,
+       0.73412698, 0.76190476, 0.77777778, 0.77777778, 0.82142857,
+       0.76587302, 0.74603175, 0.76190476, 0.75793651, 0.75396825,
+       0.75793651, 0.76190476, 0.78968254, 0.75396825, 0.78174603,
+       0.70238095, 0.75793651, 0.76190476, 0.72222222]), 'split3_test_score': array([0.84920635, 0.8531746 , 0.82539683, 0.8531746 , 0.8531746 ,
+       0.84920635, 0.84920635, 0.8452381 , 0.83333333, 0.76190476,
+       0.84126984, 0.83333333, 0.84920635, 0.83730159, 0.83730159,
+       0.83730159, 0.82142857, 0.83333333, 0.82142857, 0.83730159,
+       0.82539683, 0.83730159, 0.8015873 , 0.84126984]), 'split4_test_score': array([0.84462151, 0.85258964, 0.86055777, 0.86454183, 0.84860558,
+       0.86454183, 0.84462151, 0.84063745, 0.86055777, 0.85258964,
+       0.84462151, 0.84063745, 0.86454183, 0.86454183, 0.86055777,
+       0.84860558, 0.84462151, 0.84860558, 0.84860558, 0.86454183,
+       0.84462151, 0.85258964, 0.84860558, 0.84462151]), 'mean_test_score': array([0.80543224, 0.81496237, 0.80385759, 0.8046544 , 0.79432429,
+       0.8014798 , 0.80225764, 0.80542908, 0.80385759, 0.80385126,
+       0.80622589, 0.80463543, 0.807829  , 0.80068614, 0.80861949,
+       0.81099096, 0.79352748, 0.79353064, 0.78797508, 0.807829  ,
+       0.78876557, 0.7967084 , 0.78956239, 0.78559097]), 'std_test_score': array([0.0434306 , 0.03985625, 0.0497284 , 0.06144253, 0.06933983,
+       0.05293359, 0.05644032, 0.03810978, 0.04876917, 0.03746005,
+       0.04168646, 0.0366237 , 0.05085913, 0.06463324, 0.04401487,
+       0.03740746, 0.05810422, 0.0589063 , 0.05624726, 0.05226398,
+       0.05613099, 0.05396332, 0.04529642, 0.06401958]), 'rank_test_score': array([ 7,  1, 11,  9, 18, 15, 14,  8, 12, 13,  6, 10,  5, 16,  3,  2, 20,
+       19, 23,  4, 22, 17, 21, 24])}
+Best params : {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.8149623727312971
+
+Reading testing data
+Sequences loaded : [151]
+
+Testing model
+Testing data score : 0.7947019867549668
+
+-------------------------------
+
+Injecting Sequence, variability : 0.2
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1278
+100%|█████████▉| 1277/1278 [00:28<00:00, 44.83it/s]
+--- 28.564000368118286 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 134
+ 99%|█████████▉| 133/134 [00:03<00:00, 37.83it/s]
+--- 3.550001859664917 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1277]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 84
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 1247.1987569332123 seconds ---
+Scores : {'mean_fit_time': array([ 9.8481441 , 12.3332633 , 12.38079391, 10.25819988, 11.77395182,
+       12.7000452 , 10.8740118 , 12.68383298, 12.65639186,  8.74820714,
+       11.22951522, 13.26263714,  7.13740001,  9.46081161,  9.6709887 ,
+        7.43861437, 10.44541349, 10.44280005,  5.95364971,  7.3428071 ,
+       12.69375939,  6.64373913,  9.78559937, 11.10979977]), 'std_fit_time': array([1.39755727, 0.1389044 , 3.30705895, 1.64000992, 2.49675617,
+       4.02427688, 0.67230757, 0.81862131, 3.87915633, 2.53515399,
+       3.84146285, 4.07959735, 2.67283518, 2.43784554, 3.62225099,
+       1.97414975, 1.73723635, 4.39045731, 3.3642851 , 2.59678078,
+       3.41911752, 3.2224856 , 4.26536617, 2.56516413]), 'mean_score_time': array([0.0040031 , 0.00418491, 0.00400558, 0.00420423, 0.00437832,
+       0.00460286, 0.00400629, 0.00416565, 0.00440426, 0.00420728,
+       0.00418038, 0.004603  , 0.00460234, 0.00458903, 0.0042038 ,
+       0.00420542, 0.00436473, 0.00440345, 0.00400662, 0.00420361,
+       0.00419626, 0.00420427, 0.00440354, 0.00460219]), 'std_score_time': array([2.72006239e-06, 4.08686149e-04, 2.32430603e-06, 3.98545603e-04,
+       5.10220862e-04, 4.87514225e-04, 2.42015410e-06, 4.21024880e-04,
+       4.87391571e-04, 3.96799078e-04, 4.14182452e-04, 4.88209570e-04,
+       4.89124338e-04, 7.99548333e-04, 3.99115123e-04, 3.97834114e-04,
+       5.17144990e-04, 4.87959130e-04, 3.12319239e-06, 3.99695800e-04,
+       4.02879447e-04, 3.98881537e-04, 4.88560413e-04, 4.88908721e-04]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.8359375 , 0.85546875, 0.84375   , 0.828125  , 0.83984375,
+       0.8515625 , 0.83203125, 0.83984375, 0.828125  , 0.83203125,
+       0.83984375, 0.84375   , 0.8359375 , 0.8203125 , 0.82421875,
+       0.81640625, 0.8359375 , 0.80078125, 0.82421875, 0.84375   ,
+       0.78125   , 0.77734375, 0.8359375 , 0.79296875]), 'split1_test_score': array([0.703125  , 0.6875    , 0.67578125, 0.60546875, 0.71484375,
+       0.66015625, 0.671875  , 0.6953125 , 0.68359375, 0.68359375,
+       0.6328125 , 0.67578125, 0.63671875, 0.625     , 0.6484375 ,
+       0.640625  , 0.625     , 0.63671875, 0.6328125 , 0.65234375,
+       0.6328125 , 0.625     , 0.62890625, 0.62890625]), 'split2_test_score': array([0.70980392, 0.69019608, 0.70980392, 0.69411765, 0.70196078,
+       0.69803922, 0.68235294, 0.68235294, 0.71764706, 0.70980392,
+       0.68627451, 0.71764706, 0.70196078, 0.69411765, 0.70196078,
+       0.67058824, 0.6627451 , 0.65882353, 0.6627451 , 0.67843137,
+       0.68627451, 0.67058824, 0.6745098 , 0.69019608]), 'split3_test_score': array([0.76078431, 0.74509804, 0.77254902, 0.75294118, 0.75686275,
+       0.74509804, 0.76078431, 0.78039216, 0.7372549 , 0.75686275,
+       0.74901961, 0.74509804, 0.71764706, 0.7372549 , 0.7254902 ,
+       0.74509804, 0.74509804, 0.74901961, 0.71764706, 0.7254902 ,
+       0.72156863, 0.71764706, 0.74117647, 0.70980392]), 'split4_test_score': array([0.80784314, 0.81568627, 0.8       , 0.79607843, 0.78823529,
+       0.81176471, 0.80784314, 0.81176471, 0.79607843, 0.81568627,
+       0.81176471, 0.81568627, 0.79215686, 0.81960784, 0.8       ,
+       0.79215686, 0.80392157, 0.81176471, 0.81568627, 0.78431373,
+       0.81960784, 0.80784314, 0.81176471, 0.78431373]), 'mean_test_score': array([0.76349877, 0.75878983, 0.76037684, 0.7353462 , 0.76034926,
+       0.75332414, 0.75097733, 0.76193321, 0.75253983, 0.75959559,
+       0.74394301, 0.75959252, 0.73688419, 0.73925858, 0.74002145,
+       0.73297488, 0.73454044, 0.73142157, 0.73062194, 0.73686581,
+       0.7283027 , 0.71968444, 0.73845895, 0.72123775]), 'std_test_score': array([0.05243909, 0.06716968, 0.06063543, 0.07896055, 0.05017794,
+       0.07052719, 0.0646005 , 0.06271412, 0.05256125, 0.05771663,
+       0.07680905, 0.06200457, 0.06998493, 0.07499664, 0.06439566,
+       0.06786879, 0.08044905, 0.07185343, 0.07789558, 0.06980473,
+       0.06643815, 0.06704668, 0.07870765, 0.06122636]), 'rank_test_score': array([ 1,  7,  3, 17,  4,  8, 10,  2,  9,  5, 11,  6, 15, 13, 12, 19, 18,
+       20, 21, 16, 22, 24, 14, 23])}
+Best params : {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.7634987745098039
+
+Reading testing data
+Sequences loaded : [133]
+
+Testing model
+Testing data score : 0.7669172932330827
+
+-------------------------------
+
+Injecting Sequence, variability : 0.25
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1278
+100%|█████████▉| 1277/1278 [00:29<00:00, 43.57it/s]
+--- 29.384000778198242 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 134
+ 99%|█████████▉| 133/134 [00:02<00:00, 46.04it/s]
+--- 2.9179999828338623 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1277]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 35
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 1353.4282467365265 seconds ---
+Scores : {'mean_fit_time': array([10.54585099, 12.31411877, 13.64658852, 10.85980024, 12.5067071 ,
+       14.04898906, 10.38660007, 12.7222116 , 13.46620712, 10.59039989,
+       12.40740185, 14.38007541,  7.46400013, 12.1648849 ,  9.6303997 ,
+        7.35040021,  9.3176115 , 12.40418739,  7.83139992, 10.65940113,
+       12.32160006,  8.76559997,  9.31740012, 12.19041815]), 'std_fit_time': array([0.35652298, 0.36865262, 0.67410471, 0.33738974, 0.5462383 ,
+       0.3017182 , 0.28096242, 0.35360753, 1.96389206, 0.23934557,
+       0.24817949, 0.59767132, 3.34470608, 0.36851851, 3.18106022,
+       2.95275288, 2.91411127, 2.05034275, 2.65680845, 1.39792354,
+       1.89772846, 2.59214583, 3.43674557, 3.52484718]), 'mean_score_time': array([0.00420799, 0.00396752, 0.00400386, 0.00420442, 0.00439806,
+       0.00480194, 0.00420413, 0.00437922, 0.00440321, 0.00440331,
+       0.00416694, 0.00440354, 0.00400343, 0.00417213, 0.00420365,
+       0.00400624, 0.00419116, 0.00440297, 0.0040071 , 0.00398283,
+       0.00460415, 0.00400419, 0.00419707, 0.0048038 ]), 'std_score_time': array([3.97408131e-04, 2.73577398e-05, 1.78798039e-06, 3.97981976e-04,
+       4.95231223e-04, 3.98254480e-04, 3.98596866e-04, 5.09612926e-04,
+       4.89318796e-04, 4.88853803e-04, 4.12891299e-04, 4.89826347e-04,
+       2.93012457e-06, 4.26643806e-04, 4.00138367e-04, 3.70769638e-06,
+       4.05839044e-04, 4.89222436e-04, 4.51109122e-06, 3.16245507e-05,
+       7.98011572e-04, 3.36972422e-06, 4.04435259e-04, 7.47029909e-04]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.66015625, 0.6484375 , 0.6796875 , 0.671875  , 0.6484375 ,
+       0.6640625 , 0.6640625 , 0.66796875, 0.703125  , 0.69140625,
+       0.6875    , 0.67578125, 0.66796875, 0.68359375, 0.67578125,
+       0.69140625, 0.69140625, 0.64453125, 0.68359375, 0.6640625 ,
+       0.671875  , 0.68359375, 0.6796875 , 0.671875  ]), 'split1_test_score': array([0.66015625, 0.6796875 , 0.6484375 , 0.65625   , 0.66015625,
+       0.66796875, 0.6484375 , 0.6796875 , 0.66796875, 0.671875  ,
+       0.63671875, 0.60546875, 0.64453125, 0.6484375 , 0.66015625,
+       0.640625  , 0.6640625 , 0.64453125, 0.640625  , 0.67578125,
+       0.65234375, 0.640625  , 0.65234375, 0.640625  ]), 'split2_test_score': array([0.67843137, 0.6627451 , 0.65882353, 0.65490196, 0.65098039,
+       0.66666667, 0.65098039, 0.64313725, 0.6627451 , 0.65882353,
+       0.60784314, 0.60784314, 0.65098039, 0.64313725, 0.63137255,
+       0.60392157, 0.64705882, 0.64705882, 0.62745098, 0.63137255,
+       0.63529412, 0.62745098, 0.64313725, 0.62745098]), 'split3_test_score': array([0.72156863, 0.73333333, 0.72156863, 0.74509804, 0.72941176,
+       0.73333333, 0.70980392, 0.72941176, 0.74117647, 0.72941176,
+       0.7372549 , 0.7254902 , 0.7254902 , 0.72156863, 0.73333333,
+       0.70196078, 0.73333333, 0.74509804, 0.7254902 , 0.7254902 ,
+       0.72941176, 0.74117647, 0.73333333, 0.72941176]), 'split4_test_score': array([0.7254902 , 0.69411765, 0.70196078, 0.70980392, 0.70588235,
+       0.72941176, 0.7372549 , 0.70980392, 0.71372549, 0.68627451,
+       0.70588235, 0.7254902 , 0.71372549, 0.70980392, 0.69803922,
+       0.71764706, 0.69803922, 0.67058824, 0.67843137, 0.68235294,
+       0.68235294, 0.69019608, 0.69803922, 0.70196078]), 'mean_test_score': array([0.68916054, 0.68366422, 0.68209559, 0.68758578, 0.67897365,
+       0.6922886 , 0.68210784, 0.68600184, 0.69774816, 0.68755821,
+       0.67503983, 0.66801471, 0.68053922, 0.68130821, 0.67973652,
+       0.67111213, 0.68678002, 0.67036152, 0.67111826, 0.67581189,
+       0.67425551, 0.67660846, 0.68130821, 0.67426471]), 'std_test_score': array([0.02887123, 0.02922547, 0.02695552, 0.03492362, 0.03267493,
+       0.03196076, 0.03531718, 0.03050704, 0.0292651 , 0.023832  ,
+       0.04682122, 0.05329127, 0.03301586, 0.03154564, 0.03448394,
+       0.04236278, 0.02969593, 0.03863423, 0.03464707, 0.03040929,
+       0.03197362, 0.04028328, 0.03251193, 0.03778131]), 'rank_test_score': array([ 3,  8, 10,  4, 15,  2,  9,  7,  1,  5, 18, 24, 13, 11, 14, 22,  6,
+       23, 21, 17, 20, 16, 12, 19])}
+Best params : {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.6977481617647059
+
+Reading testing data
+Sequences loaded : [133]
+
+Testing model
+Testing data score : 0.6992481203007519
+
+-------------------------------
+
+Injecting Sequence, variability : 0.30000000000000004
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 1273
+100%|█████████▉| 1272/1273 [00:28<00:00, 44.23it/s]
+--- 28.834999799728394 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 139
+ 99%|█████████▉| 138/139 [00:03<00:00, 41.29it/s]
+--- 3.375000476837158 seconds ---
+Building model
+Reading training data
+Sequences loaded : [1272]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['lbfgs'], 'activation': ['logistic', 'relu'], 'alpha': array([0.1   , 0.01  , 0.001 , 0.0001])}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 86
+
+Training model (scaled)
+Fitting 5 folds for each of 24 candidates, totalling 120 fits
+trainModel executed in --- 1381.7379744052887 seconds ---
+Scores : {'mean_fit_time': array([10.23640881, 12.11641483, 13.69358768, 10.24672961, 12.27160096,
+       13.92258859, 10.45481911, 12.36782184, 13.94720025, 10.49339972,
+       12.41918516, 13.94501166,  6.61120005, 11.29286213, 12.98966527,
+        8.9808002 ,  9.88520141, 12.79300027,  8.91712146,  9.54760065,
+       13.54299998,  8.41399994, 12.07943373, 12.74238796]), 'std_fit_time': array([0.16303477, 0.2388953 , 0.25154585, 0.1849742 , 0.37423072,
+       0.38636698, 0.39728237, 0.5664053 , 0.4218616 , 0.32450241,
+       0.39747787, 0.55830122, 2.0732325 , 1.38607049, 0.86213102,
+       2.2246067 , 2.72749806, 1.9470281 , 1.96338311, 2.37213228,
+       1.23915183, 2.2283993 , 0.24476698, 1.86337823]), 'mean_score_time': array([0.00420728, 0.00458679, 0.0040019 , 0.00400577, 0.00481071,
+       0.00440297, 0.00400281, 0.00436449, 0.00440431, 0.00420499,
+       0.00438728, 0.00420666, 0.00420518, 0.0043704 , 0.00440331,
+       0.00400405, 0.00459213, 0.00440397, 0.00440197, 0.00399122,
+       0.00460281, 0.0042057 , 0.0043612 , 0.0042027 ]), 'std_score_time': array([3.97977919e-04, 5.15412148e-04, 4.10190833e-07, 3.60509075e-06,
+       4.30085193e-04, 4.88637528e-04, 1.57428494e-06, 5.14635105e-04,
+       4.88229210e-04, 3.98178928e-04, 4.92447665e-04, 3.97091079e-04,
+       3.98078968e-04, 4.98210895e-04, 4.89146506e-04, 2.74502525e-06,
+       4.77094662e-04, 4.87918286e-04, 4.90135378e-04, 2.48525953e-05,
+       7.98656215e-04, 3.97563878e-04, 5.01611327e-04, 3.99665541e-04]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic', 'relu',
+                   'relu', 'relu', 'relu', 'relu', 'relu', 'relu', 'relu',
+                   'relu', 'relu', 'relu', 'relu'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002, 0.1,
+                   0.1, 0.1, 0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.00010000000000000002, 0.00010000000000000002,
+                   0.00010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12, 8, 10, 12,
+                   8, 10, 12, 8, 10, 12, 8, 10, 12],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs',
+                   'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs', 'lbfgs'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'logistic', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.1, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 10, 'solver': 'lbfgs'}, {'activation': 'relu', 'alpha': 0.00010000000000000002, 'hidden_layer_sizes': 12, 'solver': 'lbfgs'}], 'split0_test_score': array([0.63921569, 0.65098039, 0.63137255, 0.64705882, 0.65098039,
+       0.64313725, 0.63529412, 0.63529412, 0.62745098, 0.64313725,
+       0.6627451 , 0.61568627, 0.62352941, 0.62745098, 0.64313725,
+       0.63137255, 0.61568627, 0.62352941, 0.60392157, 0.62352941,
+       0.60392157, 0.62352941, 0.62352941, 0.63137255]), 'split1_test_score': array([0.59607843, 0.60392157, 0.59215686, 0.58039216, 0.56862745,
+       0.57647059, 0.56470588, 0.55294118, 0.54901961, 0.55294118,
+       0.59607843, 0.58823529, 0.6       , 0.57254902, 0.57647059,
+       0.55294118, 0.56470588, 0.55294118, 0.55686275, 0.58039216,
+       0.56862745, 0.58039216, 0.55294118, 0.60392157]), 'split2_test_score': array([0.5984252 , 0.57480315, 0.59055118, 0.6023622 , 0.6023622 ,
+       0.59448819, 0.54330709, 0.56692913, 0.62992126, 0.5511811 ,
+       0.61023622, 0.5984252 , 0.61811024, 0.59448819, 0.58661417,
+       0.61023622, 0.58267717, 0.57874016, 0.59055118, 0.60629921,
+       0.57874016, 0.56692913, 0.59448819, 0.57874016]), 'split3_test_score': array([0.60629921, 0.59055118, 0.5984252 , 0.59055118, 0.59055118,
+       0.57874016, 0.5984252 , 0.59055118, 0.6023622 , 0.57480315,
+       0.55905512, 0.57480315, 0.57480315, 0.59055118, 0.60629921,
+       0.60629921, 0.58267717, 0.61811024, 0.59055118, 0.58661417,
+       0.56692913, 0.61417323, 0.6023622 , 0.57874016]), 'split4_test_score': array([0.69291339, 0.66929134, 0.68503937, 0.69685039, 0.69291339,
+       0.68897638, 0.68110236, 0.68503937, 0.68110236, 0.68110236,
+       0.68897638, 0.67322835, 0.67716535, 0.68503937, 0.68503937,
+       0.67322835, 0.69291339, 0.66929134, 0.67322835, 0.67716535,
+       0.70866142, 0.68897638, 0.67322835, 0.69291339]), 'mean_test_score': array([0.62658638, 0.61790953, 0.61950903, 0.62344295, 0.62108692,
+       0.61636251, 0.60456693, 0.606151  , 0.61797128, 0.60063301,
+       0.62341825, 0.61007565, 0.61872163, 0.61401575, 0.61951212,
+       0.6148155 , 0.60773197, 0.60852246, 0.603023  , 0.61480006,
+       0.60537595, 0.61480006, 0.60930987, 0.61713756]), 'std_test_score': array([0.03658996, 0.03615543, 0.03596163, 0.04318796, 0.04491704,
+       0.04353149, 0.04935833, 0.04834396, 0.04293292, 0.05228597,
+       0.04670827, 0.03428302, 0.0338186 , 0.03968945, 0.03990338,
+       0.03900801, 0.04566372, 0.03996562, 0.03839651, 0.03468788,
+       0.05330681, 0.04255408, 0.03932721, 0.04258637]), 'rank_test_score': array([ 1,  9,  6,  2,  4, 11, 22, 20,  8, 24,  3, 16,  7, 15,  5, 12, 19,
+       18, 23, 13, 21, 14, 17, 10])}
+Best params : {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 8, 'solver': 'lbfgs'}
+Best mean cross-validation score : 0.6265863825845299
+
+Reading testing data
+Sequences loaded : [138]
+
+Testing model
+Testing data score : 0.5652173913043478
+
+-------------------------------
+
+
+Process finished with exit code 0

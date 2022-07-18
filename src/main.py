@@ -57,6 +57,9 @@ if (sys.argv[1] == "makeBOWs"):
 if (sys.argv[1] == "convertCSVtoFASTA"):
     utils.CSVtoFASTA(sys.argv[2], sys.argv[3])
 
+if (sys.argv[1] == "plotMeanSequenceLengths"):
+    utils.plotAverageFoldLength(utils.getSequenceLengths(sys.argv[2]), sys.argv[3])
+
 if (sys.argv[1] == "findAlignments"):
     needlemanWunschInjectedSequence(sys.argv[2], "proximateSequenceScores.txt")
 
@@ -72,22 +75,23 @@ if (sys.argv[1] == "train"):
     print("--- %s seconds ---" % (time.time() - start_time))
 
 if (sys.argv[1] == "testVariability"):
-    sourcePath = "sequences/PhageContigsSeq/PhageContigsSeq.csv"
-    injectedSeqPath = "sequences/InjectedPhageContigsSeq/InjectedPhageContigsSeq.csv"
-    labelsPath = "sequences/InjectedPhageContigsSeq/labels.txt"
-    trainingSeqPath = "sequences/InjectedPhageContigsSeq/Training/seq.csv"
-    trainingLabelsPath = "sequences/InjectedPhageContigsSeq/Training/labels.txt"
-    testingSeqPath = "sequences/InjectedPhageContigsSeq/Testing/seq.csv"
-    testingLabelsPath = "sequences/InjectedPhageContigsSeq/Testing/labels.txt"
-    trainingBOWsPath = "sequences/InjectedPhageContigsSeq/Training/Seq_BOW.json"
-    testingBOWsPath = "sequences/InjectedPhageContigsSeq/Testing/Seq_BOW.json"
+    sourcePath = "sequences/PhageWholeDNASeq/PhageWholeDNASeq.csv"
+    injectedSeqPath = "sequences/InjectedPhageWholeDNASeq/InjectedPhageWholeDNASeq.csv"
+    labelsPath = "sequences/InjectedPhageWholeDNASeq/labels.txt"
+    trainingSeqPath = "sequences/InjectedPhageWholeDNASeq/Training/seq.csv"
+    trainingLabelsPath = "sequences/InjectedPhageWholeDNASeq/Training/labels.txt"
+    testingSeqPath = "sequences/InjectedPhageWholeDNASeq/Testing/seq.csv"
+    testingLabelsPath = "sequences/InjectedPhageWholeDNASeq/Testing/labels.txt"
+    trainingBOWsPath = "sequences/InjectedPhageWholeDNASeq/Training/Seq_BOW.json"
+    testingBOWsPath = "sequences/InjectedPhageWholeDNASeq/Testing/Seq_BOW.json"
     dictionaryPath = "kmerDictionaries/dic10"
 
     start_time = time.time()
-    for i in range(0, 10):
+    for i in range(0, 7):
         variability = i*0.05
         print("Injecting Sequence, variability : "+str(variability))
-        injectSequence(sourcePath, injectedSeqPath, labelsPath, variability=variability)
+        metaParameters['sequenceInjection']['variability'] = variability
+        injectSequence(sourcePath, injectedSeqPath, labelsPath)
         if i==0:
             print("Building dictionary")
             ReadSequenceFile(NEW, dictionaryPath, injectedSeqPath)
@@ -100,5 +104,5 @@ if (sys.argv[1] == "testVariability"):
         print("Making BOWs (testing)")
         ReadSequenceFile(makeBOW, dictionaryPath, testingSeqPath, testingBOWsPath)
         print("Building model")
-        modelTrainingAndTesting.trainAndTestModel("Perceptron", trainingBOWsPath, trainingLabelsPath, testingBOWsPath, testingLabelsPath, verbose=3)
+        modelTrainingAndTesting.trainAndTestModel("Perceptron", trainingBOWsPath, trainingLabelsPath, testingBOWsPath, testingLabelsPath, verbose=1)
         print("\n-------------------------------\n")
