@@ -8,56 +8,69 @@ from Bio.pairwise2 import format_alignment
 from tqdm import tqdm
 from matplotlib import pyplot
 
-from src.constants import CSV, nucleotideValues, metaParameters
-from src.utils import blocks
+from src.constants import *
+from src.utils import blocks, timerWrapper
 
-def needlemanWunschInjectedSequence(fastaFilePath, outputPath  = None):
-    fastafile = open(fastaFilePath)
-    noLines = sum(bl.count("\n") for bl in blocks(fastafile))
-    fastafile.seek(0)
+@timerWrapper
+def needlemanWunschInjectedSequence(seqFilePath, outputPath  = None, sourceType=CSV):
+    injectedSequence = metaParameters['sequenceInjection']['injectedSequence']
+    seqFile = open(seqFilePath)
+    noLines = sum(bl.count("\n") for bl in blocks(seqFile))
+    seqFile.seek(0)
 
     maxScore = 0
     bestSequence = ''
 
-    line = fastafile.readline()
+    line = seqFile.readline()
     scores = []
     sequenceCount = 0
     limiter = -1
 
+    if sourceType == CSV:
+        headers = seqFile.readline().split(',')
+        line = seqFile.readline()
+
     with tqdm(total=noLines, position=0, leave=True) as pbar:
-        while(line and sequenceCount != limiter):
+        while line and sequenceCount != limiter:
             pbar.update(1)
-            if(line == '\n' or line[0] == '>'):
-                line = fastafile.readline()
-                continue
-            sequenceCount += 1
-            sequence = line
-            score = pairwise2.align.localxs(injectedSequence, sequence, -0.5, -0.25, score_only=True)
+            if sourceType == CSV:
+                lineElements = line.split(',')
+                id = lineElements[0]
+                sequence = lineElements[-1].lower()[:len(lineElements[-1]) - 1]
+            if sourceType == FASTA:
+                if line != '\n' and line[0] != '>':
+                    rawLine = line[:len(line) - 1]
+                    sequence = sequence + rawLine  # Stitching the sequence back together line by line
+                    continue
+                sequenceCount += 1
+            score = pairwise2.align.localxs(injectedSequence, sequence, -3.0, -0.0, score_only=True, penalize_end_gaps=False)
             scores.append(score)
-            if(score>maxScore):
+            if score>maxScore:
                 maxScore = score
                 bestSequence = sequence
-            line = fastafile.readline()
+            line = seqFile.readline()
 
-    print(maxScore)
-    alignment = pairwise2.align.localxs(injectedSequence, bestSequence, -0.5, -0.25, one_alignment_only=True)
-    print(alignment)
-    if(outputPath != None):
+    print('Best score: ' + str(maxScore) + '/' + str(len(injectedSequence)))
+    alignment = pairwise2.align.localxs(injectedSequence, bestSequence, -3.0, -0.0, one_alignment_only=True, penalize_end_gaps=False)
+    print('Best alignment:' + str(alignment))
+    if outputPath != None:
         outputFile = open(outputPath, "w")
-        outputFile.write("Proximity scores to test sequence 'gcaattagatctaatgggacggaggcct'\n")
+        outputFile.write('Proximity scores to test sequence "' + injectedSequence + '"\n')
+        print("Sorting and saving scores...")
         scores.sort()
         outputFile.write(str(scores))
-        pyplot.boxplot(scores)
-        pyplot.show()
-    #Best alignement to date : gcaatta--gatctaat-gg-gacggaggc--ct with a score of 22.5 / 28
+    pyplot.boxplot(scores)
+    pyplot.title('Best Needleman-Wunsch alignement scores')
+    pyplot.show()
 
-
-def injectSequence(seqFilePath, newFilePath, labelFilePath, sourceType=CSV):
+@timerWrapper
+def injectSequence(seqFilePath, newFilePath, labelFilePath, variabilityType='randomPosition', sourceType=CSV):
 
     metaParams = metaParameters.get('sequenceInjection')
     injectedSequence = metaParams.get('injectedSequence')
     injectionRate = metaParams.get('injectionRate')
     variability = metaParams.get('variability')
+    fixedVariabilityIndexes = metaParams.get('fixedVariabilityIndexes')
 
     random.seed()
     seqFile = open(seqFilePath, "r")
@@ -73,14 +86,23 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, sourceType=CSV):
         while line:
             if random.random()<injectionRate :
                 modifiedSequence = ""
-                if variability>0:
+                if variabilityType == 'randomPosition':
+                    if variability>0:
+                        for i in range(len(injectedSequence)):
+                            if random.random()<variability:
+                                modifiedSequence += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
+                            else:
+                                modifiedSequence += injectedSequence[i]
+                    else:
+                        modifiedSequence = injectedSequence
+                if variabilityType == 'fixedPosition':
                     for i in range(len(injectedSequence)):
-                        if random.random()<variability:
+                        if i in fixedVariabilityIndexes:
                             modifiedSequence += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
                         else:
                             modifiedSequence += injectedSequence[i]
-                else:
-                    modifiedSequence = injectedSequence
+
+
 
                 label = 1
                 seqStart = line.rindex(',')+1

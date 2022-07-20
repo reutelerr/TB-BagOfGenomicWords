@@ -1,6 +1,8 @@
 import time
 import sys
 
+from matplotlib import pyplot
+
 import kmer_Counting
 import utils
 import modelTrainingAndTesting
@@ -28,17 +30,14 @@ def ReadSequenceFile(mode, dictionaryPath, sourcePath, outputPath =''):
     if fileExtension == "fasta" : sourceType = FASTA
     if fileExtension == "txt" : sourceType = FASTA
 
-    start_time = time.time()
     if mode == makeBOW:
         kmer_Counting.vectorize(dictionaryPath, sourcePath, outputPath, sourceType)
     else:
         kmer_Counting.buildDictionary(mode, dictionaryPath, sourcePath, sourceType)
-    print("--- %s seconds ---" % (time.time() - start_time))
+
 
 def Filter(dicPath):
-    start_time = time.time()
     kmer_Counting.filterByFrequency(dicPath)
-    print("--- %s seconds ---" % (time.time() - start_time))
 
 if (sys.argv[1] == "help"):
     displayHelp()
@@ -86,6 +85,8 @@ if (sys.argv[1] == "testVariability"):
     testingBOWsPath = "sequences/InjectedPhageWholeDNASeq/Testing/Seq_BOW.json"
     dictionaryPath = "kmerDictionaries/dic10"
 
+    scores = []
+    refitTimes = []
     start_time = time.time()
     for i in range(0, 7):
         variability = i*0.05
@@ -104,5 +105,18 @@ if (sys.argv[1] == "testVariability"):
         print("Making BOWs (testing)")
         ReadSequenceFile(makeBOW, dictionaryPath, testingSeqPath, testingBOWsPath)
         print("Building model")
-        modelTrainingAndTesting.trainAndTestModel("Perceptron", trainingBOWsPath, trainingLabelsPath, testingBOWsPath, testingLabelsPath, verbose=1)
+        (score, refitTime) = modelTrainingAndTesting.trainAndTestModel("Perceptron", trainingBOWsPath, trainingLabelsPath, testingBOWsPath, testingLabelsPath, verbose=4)
+        scores.append(score)
+        refitTimes.append(refitTime)
         print("\n-------------------------------\n")
+    print("%s executed in --- %s seconds ---" % (sys.argv[1], time.time() - start_time))
+
+    pyplot.bar(0.05*np.arange(0, 7), scores)
+    pyplot.xlabel('Variability')
+    pyplot.ylabel('Best score')
+    pyplot.show()
+
+    pyplot.bar(0.05 * np.arange(0, 7), refitTimes)
+    pyplot.xlabel('Variability')
+    pyplot.ylabel('Refit time')
+    pyplot.show()

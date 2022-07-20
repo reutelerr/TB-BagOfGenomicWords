@@ -19,11 +19,12 @@ metaParameters = {
         'injectedSequence': 'gcaattagatctaatgggacggaggcct',
         'injectionRate': 0.5,
         'variability': 0.0,
+        'fixedVariabilityIndexes': [3, 15]
     },
     'modelTraining': {
-        'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': 0.1 ** np.arange(1, 5), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001, 0.0001]},
+        'gridSearchParams': {'hidden_layer_sizes': [8, 10, 12], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': 0.1 ** np.arange(2, 3), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01]},
         'scoring': 'accuracy',
-        'cvFolds': 5,
+        'cvFolds': 10,
     }
 
 }

@@ -109,7 +109,7 @@ def plotAverageFoldLength(sequenceLengths, cvFolds = metaParameters['modelTraini
         foldEnd = int((i+1)*len(sequenceLengths)/cvFolds) #Not included
         meanSeqLength = mean(sequenceLengths[foldStart:foldEnd])
         meanSeqLengths.append(meanSeqLength)
-    pyplot.bar(range(1, 6), meanSeqLengths)
+    pyplot.bar(range(1, cvFolds+1), meanSeqLengths)
     pyplot.xlabel('CV-fold')
     pyplot.ylabel('Average Sequence Length')
     pyplot.show()

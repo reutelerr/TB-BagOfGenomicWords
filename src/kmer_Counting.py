@@ -5,7 +5,7 @@ import time
 from tqdm import tqdm
 
 from src.constants import CSV, FASTA, metaParameters
-from src.utils import blocks
+from src.utils import blocks, timerWrapper
 
 seqLimiter = 100000
 
@@ -37,6 +37,7 @@ def countKmers(sequence, kmerCounts, nucleotideCounter, kmerLength, newCounts) :
                 kmerCounts[kmer] = 1
     return nucleotideCounter + kmerLength
 
+@timerWrapper
 def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
     seqFile = open(sourcePath)
 
@@ -89,7 +90,7 @@ def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
 
 
 
-
+@timerWrapper
 def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
     sequence_file = open(sourcePath)
 
@@ -142,7 +143,7 @@ def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
         dictionaryFile.close()
     sequence_file.close()
 
-
+@timerWrapper
 def filterByFrequency(dictionaryFilePath):
     frequent_kmers = [None] * maxKmerLength
     for length in range(maxKmerLength, 2, -1):

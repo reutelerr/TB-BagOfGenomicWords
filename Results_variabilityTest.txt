@@ -1,0 +1,1539 @@
+Injecting Sequence, variability : 0.0
+Building dictionary
+Total number of lines in file : 3743
+Counting K-mers of length : 10
+100%|█████████▉| 3742/3743 [01:20<00:00, 46.26it/s]
+Counting K-mers of length : 9
+100%|█████████▉| 3742/3743 [00:57<00:00, 64.68it/s]
+Counting K-mers of length : 8
+100%|█████████▉| 3742/3743 [00:41<00:00, 90.36it/s] 
+  0%|          | 0/3743 [00:00<?, ?it/s]Counting K-mers of length : 7
+100%|█████████▉| 3742/3743 [00:35<00:00, 104.00it/s]
+Counting K-mers of length : 6
+100%|█████████▉| 3742/3743 [00:33<00:00, 111.33it/s]
+Counting K-mers of length : 5
+100%|█████████▉| 3742/3743 [00:33<00:00, 112.04it/s]
+Counting K-mers of length : 4
+100%|█████████▉| 3742/3743 [00:31<00:00, 117.81it/s]
+Counting K-mers of length : 3
+100%|█████████▉| 3742/3743 [00:29<00:00, 128.44it/s]
+--- 344.57180619239807 seconds ---
+Filtering dictionary
+100%|██████████| 1052078/1052078 [00:00<00:00, 3530459.11it/s]
+100%|██████████| 265349/265349 [00:00<00:00, 3537995.66it/s]
+100%|██████████| 68437/68437 [00:00<00:00, 3802079.33it/s]
+100%|██████████| 18968/18968 [00:00<00:00, 3793874.98it/s]
+100%|██████████| 6319/6319 [00:00<00:00, 3159729.01it/s]
+100%|██████████| 2758/2758 [00:00<00:00, 2762811.19it/s]
+100%|██████████| 1322/1322 [00:00<?, ?it/s]
+--- 0.8650026321411133 seconds ---
+Splitting training and testing data
+100%|██████████| 470/470 [00:00<00:00, 469698.09it/s]
+Making BOWs (training)
+Total number of lines in file : 3364
+100%|█████████▉| 3363/3364 [03:30<00:00, 16.00it/s]
+--- 210.614000082016 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 380
+100%|█████████▉| 379/380 [00:23<00:00, 16.39it/s]
+--- 23.195000648498535 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3363]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 39
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.5min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.5min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.7min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.7min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 3.8min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.8min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.994 total time= 3.9min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.997 total time= 3.7min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.8min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 4.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 7.8min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.3min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.4min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.8min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 9.0min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 7.8min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 7.9min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 4.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.2min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.5min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.997 total time= 4.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.1min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 7.8min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.8min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.8min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.7min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 4.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.994 total time= 3.8min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.9min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 9.1min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.8min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.4min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 8.3min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.9min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.3min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 3.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 9.5min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.994 total time= 3.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.994 total time= 8.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.9min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.3min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.2min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 4.1min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.997 total time= 4.3min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.994 total time= 8.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.3min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.5min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.5min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.8min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 3.8min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.1min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.997 total time= 4.1min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.6min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.3min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 8.6min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.8min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.7min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.9min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 4.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.997 total time= 4.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.7min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 3.9min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 9.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.2min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.8min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 9.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.2min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.4min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.999 total time= 4.3min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.997 total time= 4.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.2min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=1.000 total time= 4.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 7.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 7.7min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 8.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 8.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 5.3min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 5.4min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.997 total time= 4.6min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.999 total time= 4.8min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=1.000 total time= 3.5min
+trainModel executed in --- 2853.4843361377716 seconds ---
+Scores : {'mean_fit_time': array([222.05599837, 507.29159989, 230.00079875, 483.9420104 ,
+       242.54421296, 514.97856884, 230.1626534 , 512.03737936,
+       233.69119949, 497.7857224 , 249.67632265, 515.76420903,
+       237.22819986, 525.39519968, 237.50319991, 481.17799911,
+       252.6495966 , 284.73019848]), 'std_fit_time': array([ 8.13237571, 25.98993094,  8.02518783, 15.77492087,  2.54053118,
+       19.34135052,  4.71611672, 34.72029808,  2.50506541, 12.12791721,
+        3.57224117,  9.63468563,  6.09225494, 20.20481208,  2.83983405,
+       10.42851383,  6.98385359, 40.34153982]), 'mean_score_time': array([0.13760171, 0.14379964, 0.15279884, 0.14920077, 0.14979653,
+       0.14539814, 0.14400148, 0.13959804, 0.14880199, 0.14580269,
+       0.1432025 , 0.14680181, 0.1552012 , 0.14519987, 0.14599953,
+       0.09599814, 0.13320179, 0.03700161]), 'std_score_time': array([0.00783708, 0.00767664, 0.00570707, 0.00584548, 0.00990177,
+       0.00980992, 0.00851032, 0.01122023, 0.00318836, 0.01030112,
+       0.00421482, 0.00552581, 0.00806019, 0.00499671, 0.00282864,
+       0.02286594, 0.01403575, 0.01221576]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}], 'split0_test_score': array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+       1.]), 'split1_test_score': array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+       1.]), 'split2_test_score': array([0.99851412, 0.99851412, 0.99851412, 0.99851412, 0.99851412,
+       0.99851412, 0.99851412, 0.99851412, 0.99851412, 0.99851412,
+       0.99851412, 0.99851412, 0.99851412, 0.99851412, 0.99851412,
+       0.99851412, 0.99851412, 0.99851412]), 'split3_test_score': array([0.99404762, 0.99702381, 0.99702381, 0.99702381, 0.99702381,
+       0.99702381, 0.99404762, 0.99404762, 0.99404762, 0.99404762,
+       0.99702381, 0.99702381, 0.99702381, 0.99702381, 0.99702381,
+       0.99702381, 0.99702381, 0.99702381]), 'split4_test_score': array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.,
+       1.]), 'mean_test_score': array([0.99851235, 0.99910759, 0.99910759, 0.99910759, 0.99910759,
+       0.99910759, 0.99851235, 0.99851235, 0.99851235, 0.99851235,
+       0.99910759, 0.99910759, 0.99910759, 0.99910759, 0.99910759,
+       0.99910759, 0.99910759, 0.99910759]), 'std_test_score': array([0.00230535, 0.00119026, 0.00119026, 0.00119026, 0.00119026,
+       0.00119026, 0.00230535, 0.00230535, 0.00230535, 0.00230535,
+       0.00119026, 0.00119026, 0.00119026, 0.00119026, 0.00119026,
+       0.00119026, 0.00119026, 0.00119026]), 'rank_test_score': array([14,  1,  1,  1,  1,  1, 14, 14, 14, 14,  1,  1,  1,  1,  1,  1,  1,
+        1])}
+Best params : {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}
+Best mean cross-validation score : 0.9991075850845539
+
+Reading testing data
+Sequences loaded : [379]
+
+Testing model
+Testing data score : 1.0
+
+-------------------------------
+
+Injecting Sequence, variability : 0.05
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 3371
+100%|█████████▉| 3370/3371 [03:27<00:00, 16.22it/s]
+--- 208.19700002670288 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 373
+100%|█████████▉| 372/373 [00:24<00:00, 15.12it/s]
+--- 24.674001693725586 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3370]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 92
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.918 total time= 3.6min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.858 total time= 5.8min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.890 total time= 5.9min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.921 total time= 5.9min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.938 total time= 6.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.923 total time= 6.4min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.911 total time= 7.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.945 total time= 4.1min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.927 total time= 6.7min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.872 total time=12.1min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.902 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.909 total time=12.3min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.907 total time=12.3min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.861 total time=12.3min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.880 total time= 6.5min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.921 total time= 7.3min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.933 total time= 7.3min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.929 total time= 7.6min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.909 total time=14.2min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.889 total time= 7.9min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.875 total time=14.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.902 total time= 8.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.914 total time=14.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.912 total time=14.2min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.861 total time=14.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.932 total time= 5.0min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.883 total time= 5.7min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.929 total time= 5.7min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.904 total time= 6.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.877 total time= 7.1min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.914 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.887 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.917 total time=12.1min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.914 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.902 total time= 6.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.924 total time= 6.2min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.926 total time= 8.2min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.918 total time= 6.4min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.924 total time=16.1min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.866 total time=16.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.911 total time=12.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.907 total time=12.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.915 total time=12.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.880 total time=12.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.872 total time= 7.1min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.923 total time= 6.9min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.933 total time= 7.3min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.938 total time= 6.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.911 total time= 8.7min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.880 total time= 8.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.920 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.872 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.915 total time=14.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.909 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.874 total time=14.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.914 total time= 5.9min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.878 total time= 6.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.917 total time= 5.3min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.909 total time=15.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.935 total time= 6.5min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.902 total time=16.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.883 total time= 8.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.915 total time=16.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.915 total time=16.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.859 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.866 total time=12.1min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.902 total time=12.3min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.884 total time= 7.5min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.921 total time= 8.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.905 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.923 total time= 6.4min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.902 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.926 total time= 8.4min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.844 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.874 total time= 7.0min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.920 total time= 7.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.915 total time= 8.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.890 total time= 8.4min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.935 total time= 7.9min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.868 total time= 7.7min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.909 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.880 total time=13.7min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.911 total time=13.5min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.920 total time=13.5min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.872 total time=13.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.914 total time=11.7min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.907 total time=11.4min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.915 total time= 7.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.926 total time= 7.7min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.869 total time= 7.1min
+trainModel executed in --- 4754.088109254837 seconds ---
+Scores : {'mean_fit_time': array([327.19879832, 732.0842608 , 370.05147614, 847.7275672 ,
+       458.61800094, 960.99431233, 356.37199759, 726.75692139,
+       407.10961766, 842.10685582, 453.89579883, 960.15145745,
+       384.41450534, 728.21606097, 450.8460629 , 813.0670681 ,
+       472.28841109, 549.21888337]), 'std_fit_time': array([ 54.7964182 ,   4.57604672,  62.8705187 ,   2.12629408,
+        20.69253301,   2.29544754,  41.19796104,   4.73904144,
+        47.23645686,   0.54729343,  39.84178566,   2.36797736,
+        56.01406744,   7.35693217,  45.70185606,  19.23382912,
+        23.55757612, 119.03201777]), 'mean_score_time': array([0.14380136, 0.13959885, 0.14280071, 0.14919896, 0.14639826,
+       0.15140057, 0.14660239, 0.14480081, 0.14400287, 0.14560156,
+       0.14499822, 0.14500141, 0.14839659, 0.15079904, 0.14680028,
+       0.11440039, 0.15879726, 0.04240122]), 'std_score_time': array([0.01012693, 0.01312486, 0.00877386, 0.00673459, 0.00671179,
+       0.00850069, 0.00788822, 0.00545953, 0.0052155 , 0.00924308,
+       0.01078869, 0.00814846, 0.00265529, 0.00705346, 0.00545433,
+       0.02273155, 0.01987503, 0.01702503]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}], 'split0_test_score': array([0.92136499, 0.90207715, 0.91097923, 0.90949555, 0.92136499,
+       0.91394659, 0.90356083, 0.91691395, 0.92581602, 0.91988131,
+       0.92284866, 0.90949555, 0.91394659, 0.90207715, 0.92136499,
+       0.90949555, 0.91543027, 0.91394659]), 'split1_test_score': array([0.89020772, 0.87240356, 0.92284866, 0.87537092, 0.90207715,
+       0.88724036, 0.88278932, 0.91097923, 0.90207715, 0.87240356,
+       0.91097923, 0.90207715, 0.87833828, 0.86646884, 0.884273  ,
+       0.87982196, 0.89020772, 0.90652819]), 'split2_test_score': array([0.91839763, 0.90949555, 0.9272997 , 0.91394659, 0.93323442,
+       0.91394659, 0.92878338, 0.90652819, 0.92433234, 0.91543027,
+       0.93323442, 0.91543027, 0.91691395, 0.90504451, 0.92284866,
+       0.91097923, 0.91988131, 0.91543027]), 'split3_test_score': array([0.93768546, 0.90652819, 0.94510386, 0.91246291, 0.92878338,
+       0.92433234, 0.93175074, 0.91543027, 0.91839763, 0.90949555,
+       0.93768546, 0.91543027, 0.9347181 , 0.90207715, 0.92581602,
+       0.91988131, 0.9347181 , 0.92581602]), 'split4_test_score': array([0.85756677, 0.86053412, 0.87982196, 0.86053412, 0.88872404,
+       0.86646884, 0.8768546 , 0.87982196, 0.87240356, 0.87388724,
+       0.87982196, 0.85905045, 0.88278932, 0.84421365, 0.87388724,
+       0.87240356, 0.86795252, 0.8694362 ]), 'mean_test_score': array([0.90504451, 0.89020772, 0.91721068, 0.89436202, 0.9148368 ,
+       0.90118694, 0.90474777, 0.90593472, 0.90860534, 0.89821958,
+       0.91691395, 0.90029674, 0.90534125, 0.88397626, 0.90563798,
+       0.89851632, 0.90563798, 0.90623145]), 'std_test_score': array([0.02822893, 0.01988352, 0.02167188, 0.02211429, 0.01685397,
+       0.02126584, 0.02266487, 0.01355274, 0.01996307, 0.02074182,
+       0.02070783, 0.02119949, 0.02148827, 0.02444067, 0.0219785 ,
+       0.0187813 , 0.02367573, 0.01939936]), 'rank_test_score': array([10, 17,  1, 16,  3, 12, 11,  6,  4, 15,  2, 13,  9, 18,  7, 14,  7,
+        5])}
+Best params : {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}
+Best mean cross-validation score : 0.9172106824925816
+
+Reading testing data
+Sequences loaded : [372]
+
+Testing model
+Testing data score : 0.9112903225806451
+
+-------------------------------
+
+Injecting Sequence, variability : 0.1
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 3375
+100%|█████████▉| 3374/3375 [03:30<00:00, 16.04it/s]
+--- 210.7929983139038 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 369
+100%|█████████▉| 368/369 [00:23<00:00, 15.67it/s]
+--- 23.56500005722046 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3374]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 43
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.879 total time= 5.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.849 total time= 5.2min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.828 total time= 5.7min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.847 total time= 6.0min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.836 total time= 6.3min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.880 total time= 6.5min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.880 total time= 6.5min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.879 total time= 5.9min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.864 total time=12.0min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.831 total time=12.1min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.835 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.858 total time=12.1min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.862 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.855 total time= 8.1min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.847 total time= 8.4min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.856 total time= 6.2min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.846 total time= 6.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.883 total time= 6.5min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.879 total time= 6.7min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.841 total time= 7.2min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.830 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.870 total time=14.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.855 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.856 total time=14.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.849 total time= 4.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.876 total time= 5.5min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.832 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.853 total time= 5.4min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.839 total time= 7.7min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.871 total time= 8.3min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.834 total time=15.9min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.870 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.830 total time=12.1min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.834 total time= 7.3min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.852 total time=16.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.879 total time= 5.7min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.864 total time=16.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.846 total time=16.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.853 total time=12.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.855 total time=12.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.876 total time= 6.8min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.850 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.838 total time=12.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.856 total time=10.7min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.849 total time= 9.2min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.862 total time= 7.4min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.841 total time= 8.2min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.877 total time= 8.4min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.847 total time= 7.2min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.880 total time= 8.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.834 total time=14.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.864 total time=14.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.859 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.861 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.831 total time=14.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.874 total time= 5.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.856 total time= 4.8min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.850 total time= 5.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.830 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.834 total time=11.6min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.883 total time= 9.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.867 total time=16.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.853 total time=16.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.874 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.834 total time=12.2min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.856 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.847 total time=16.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.877 total time= 5.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.852 total time=12.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.833 total time= 7.6min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.855 total time=12.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.881 total time= 8.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.855 total time= 8.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.849 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.844 total time= 7.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.834 total time= 7.2min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.880 total time= 5.8min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.876 total time= 8.1min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.849 total time= 8.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.831 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.861 total time=13.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.853 total time=13.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.862 total time=13.7min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.853 total time=10.6min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.825 total time=12.7min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.830 total time=11.4min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.868 total time=10.7min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.858 total time= 8.4min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.859 total time= 8.1min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.847 total time= 7.5min
+trainModel executed in --- 4826.695986509323 seconds ---
+Scores : {'mean_fit_time': array([
+       343.15059981, 726.45420041, 422.42080112, 842.59000125,
+       393.32199974, 960.82322383, 371.95560145, 722.12502513,
+       477.80980997, 842.80037522, 482.4312017 , 961.54583583,
+       440.49889307, 724.02997904, 434.98039951, 818.91340084,
+       479.89059858, 553.93002701
+       ]), 'std_fit_time': array([
+       29.22732494,   3.75774775,  59.69827065,   1.34918602,
+       22.71350403,   3.04415152,  93.39508078,   1.78669515,
+       105.53520532,   0.60554871,  38.43107402,   0.8940264 ,
+       157.29010247,   4.58391691,  63.69822482,  28.47545029,
+       92.33748844,  93.82417789
+       ]), 'mean_score_time': array([
+       0.14780073, 0.1440002 , 0.14219747, 0.1487999 , 0.1521997 ,
+       0.15059986, 0.14299965, 0.15039763, 0.14460011, 0.14359922,
+       0.14080014, 0.150001  , 0.14779987, 0.15100036, 0.14699969,
+       0.10279927, 0.1380022 , 0.03240128
+       ]), 'std_score_time': array([
+       0.00690932, 0.0068995 , 0.00793256, 0.0105712 , 0.01161789,
+       0.01338151, 0.00669288, 0.00560555, 0.00402762, 0.00668112,
+       0.01123003, 0.01043031, 0.00312432, 0.0062308 , 0.0070972 ,
+       0.02522165, 0.02719467, 0.0144307
+       ]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'},
+            {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}
+       ], 'split0_test_score': array([
+       0.82814815, 0.83111111, 0.83555556, 0.82962963, 0.84148148,
+       0.83407407, 0.83851852, 0.82962963, 0.83407407, 0.83407407,
+       0.84148148, 0.82962963, 0.83407407, 0.83407407, 0.83259259,
+       0.83111111, 0.83407407, 0.82962963
+       ]), 'split1_test_score': array([
+       0.88      , 0.8637037 , 0.88      , 0.86962963, 0.87851852,
+       0.86962963, 0.87555556, 0.85333333, 0.87851852, 0.8637037 ,
+       0.87703704, 0.86666667, 0.87407407, 0.8562963 , 0.88148148,
+       0.86074074, 0.87555556, 0.86814815
+       ]), 'split2_test_score': array([
+       0.84888889, 0.86222222, 0.85481481, 0.8562963 , 0.8562963 ,
+       0.85185185, 0.84888889, 0.85481481, 0.8562963 , 0.86074074,
+       0.86222222, 0.85333333, 0.8562963 , 0.85185185, 0.85481481,
+       0.85333333, 0.85333333, 0.85777778
+       ]), 'split3_test_score': array([
+       0.87851852, 0.85777778, 0.87851852, 0.85481481, 0.88296296,
+       0.8637037 , 0.87111111, 0.85037037, 0.87555556, 0.85925926,
+       0.88      , 0.87407407, 0.88296296, 0.85481481, 0.87703704,
+       0.86222222, 0.88      , 0.85925926
+       ]), 'split4_test_score': array([
+       0.84718101, 0.83531157, 0.84718101, 0.83234421, 0.84569733,
+       0.84569733, 0.85311573, 0.83827893, 0.84866469, 0.83086053,
+       0.84718101, 0.84718101, 0.85014837, 0.84866469, 0.84421365,
+       0.82492582, 0.84866469, 0.84718101
+       ]), 'mean_test_score': array([
+       0.85654731, 0.85002528, 0.85921398, 0.84854292, 0.86099132,
+       0.85299132, 0.85743796, 0.84528542, 0.85862183, 0.84972766,
+       0.86158435, 0.85417694, 0.85951116, 0.84914035, 0.85802792,
+       0.84646664, 0.85832553, 0.85239916
+       ]), 'std_test_score': array([
+       0.01992814, 0.01392986, 0.01748479, 0.01525917, 0.01689106,
+       0.01268031, 0.01389184, 0.00975325, 0.01667198, 0.01420192,
+       0.01542667, 0.01551847, 0.0173615 , 0.00797469, 0.01875916,
+       0.01548508, 0.01716417, 0.01318864
+       ]), 'rank_test_score': array([ 9, 13,  4, 16,  2, 11,  8, 18,  5, 14,  1, 10,  3, 15,  7, 17,  6,
+       12])}
+Best params : {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}
+Best mean cross-validation score : 0.8615843499285635
+
+Reading testing data
+Sequences loaded : [368]
+
+Testing model
+Testing data score : 0.8586956521739131
+
+-------------------------------
+
+Injecting Sequence, variability : 0.15000000000000002
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 3363
+100%|█████████▉| 3362/3363 [03:29<00:00, 16.05it/s]
+--- 209.9529995918274 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 381
+100%|█████████▉| 380/381 [00:24<00:00, 15.76it/s]
+--- 24.180000066757202 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3362]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 60
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.736 total time= 4.4min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.738 total time= 5.3min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.753 total time= 6.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.755 total time= 6.7min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.758 total time= 6.8min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.792 total time= 6.8min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.810 total time= 7.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.799 total time= 6.7min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.805 total time= 6.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.790 total time=12.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.796 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.750 total time=12.2min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.761 total time=12.2min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.753 total time=12.3min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.750 total time= 9.1min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.750 total time= 6.7min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.752 total time= 7.9min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.810 total time= 8.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.755 total time= 8.4min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.752 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.752 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.810 total time=14.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.796 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.790 total time= 9.6min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.750 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.796 total time= 5.7min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.755 total time= 6.8min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.755 total time= 6.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.815 total time= 7.3min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.746 total time= 7.0min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.746 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.740 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.752 total time=12.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.783 total time=16.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.795 total time=16.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.792 total time= 7.0min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.765 total time= 7.8min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.762 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.761 total time=12.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.749 total time= 9.2min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.796 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.796 total time=12.1min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.751 total time=12.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.814 total time= 9.6min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.741 total time= 9.6min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.755 total time= 8.7min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.752 total time= 9.5min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.790 total time= 9.3min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.746 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.755 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.798 total time=14.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.817 total time=10.2min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.787 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.763 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.753 total time=11.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.792 total time= 5.9min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.752 total time= 7.4min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.756 total time= 7.1min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.750 total time=15.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.802 total time= 8.4min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.743 total time= 7.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.755 total time=16.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.811 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.753 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.792 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.758 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.760 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.755 total time= 6.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.790 total time= 7.8min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.804 total time=12.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.805 total time= 9.1min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.749 total time=11.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.793 total time=12.0min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.747 total time=12.6min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.747 total time= 9.9min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.749 total time= 7.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.810 total time= 7.5min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.755 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.756 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.758 total time= 9.6min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.793 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.743 total time= 8.5min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.798 total time=13.6min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.747 total time=13.5min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.798 total time= 9.9min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.749 total time=11.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.755 total time= 9.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.801 total time= 8.6min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.789 total time= 6.3min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.751 total time= 5.7min
+trainModel executed in --- 5086.132369041443 seconds ---
+Scores : {'mean_fit_time': array([365.25099878, 728.33059793, 416.15700092, 841.09739857,
+       487.19219837, 960.34560075, 404.70180092, 721.89850698,
+       518.42275643, 840.78394623, 587.28653278, 959.02394457,
+       441.91846771, 720.99119883, 548.01060104, 829.0317914 ,
+       510.28934245, 492.06558852]), 'std_fit_time': array([ 63.62189758,   7.74072011,  67.58463364,   0.56685922,
+        55.67017493,   1.53333326,  32.39422898,   2.85172194,
+        62.38183254,   0.99296676,  51.59109832,   2.35400324,
+        51.83639056,   4.71512705, 127.16724162,  14.48182341,
+        68.27662633, 119.29186107]), 'mean_score_time': array([0.14719915, 0.14200087, 0.142801  , 0.14079766, 0.14940033,
+       0.14639978, 0.1538013 , 0.14260116, 0.15259624, 0.14979978,
+       0.14899974, 0.15020161, 0.14160066, 0.13779898, 0.14579906,
+       0.11639962, 0.12319474, 0.03300042]), 'std_score_time': array([0.00541855, 0.00817288, 0.00746774, 0.01151447, 0.00728174,
+       0.00538978, 0.00630572, 0.01141327, 0.00500308, 0.00699667,
+       0.00873932, 0.00559957, 0.00806431, 0.00670552, 0.00793334,
+       0.03050418, 0.033144  , 0.0137985 ]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}], 'split0_test_score': array([0.73551263, 0.75334324, 0.75334324, 0.75185736, 0.75185736,
+       0.74591382, 0.75482912, 0.75185736, 0.74888559, 0.74591382,
+       0.75185736, 0.75037147, 0.75185736, 0.75334324, 0.7473997 ,
+       0.75482912, 0.74888559, 0.74888559]), 'split1_test_score': array([0.75482912, 0.76077266, 0.75780089, 0.75185736, 0.75482912,
+       0.73997028, 0.75482912, 0.76077266, 0.76523031, 0.75482912,
+       0.75482912, 0.75482912, 0.75631501, 0.75780089, 0.75482912,
+       0.75631501, 0.75780089, 0.75482912]), 'split2_test_score': array([0.79166667, 0.79613095, 0.79910714, 0.80952381, 0.79017857,
+       0.7827381 , 0.79613095, 0.79613095, 0.79166667, 0.79761905,
+       0.79017857, 0.8110119 , 0.79166667, 0.80357143, 0.79017857,
+       0.79315476, 0.79761905, 0.80059524]), 'split3_test_score': array([0.80952381, 0.79017857, 0.80505952, 0.79613095, 0.80952381,
+       0.79464286, 0.81547619, 0.79613095, 0.8139881 , 0.78720238,
+       0.81696429, 0.79166667, 0.80208333, 0.79315476, 0.80505952,
+       0.79761905, 0.80952381, 0.78869048]), 'split4_test_score': array([0.73809524, 0.75      , 0.75      , 0.75      , 0.75      ,
+       0.76190476, 0.74553571, 0.7514881 , 0.74107143, 0.76339286,
+       0.75297619, 0.76041667, 0.74255952, 0.7485119 , 0.74702381,
+       0.74702381, 0.74255952, 0.7514881 ]), 'mean_test_score': array([0.76592549, 0.77008508, 0.77306216, 0.77187389, 0.77127777,
+       0.76503396, 0.77336022, 0.771276  , 0.77216842, 0.76979145,
+       0.77336111, 0.77365917, 0.76889638, 0.77127645, 0.76889815,
+       0.76978835, 0.77127777, 0.7688977 ]), 'std_test_score': array([0.02961762, 0.01924867, 0.02389886, 0.02563479, 0.02416797,
+       0.02094604, 0.02739806, 0.02056454, 0.0271526 , 0.01955745,
+       0.02609772, 0.02362942, 0.02350366, 0.02255235, 0.02407949,
+       0.02118523, 0.02707174, 0.02143825]), 'rank_test_score': array([17, 11,  4,  6,  7, 18,  3, 10,  5, 12,  2,  1, 16,  9, 14, 13,  7,
+       15])}
+Best params : {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}
+Best mean cross-validation score : 0.7736591664897756
+
+Reading testing data
+Sequences loaded : [380]
+
+Testing model
+Testing data score : 0.7605263157894737
+
+-------------------------------
+
+Injecting Sequence, variability : 0.2
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 3383
+100%|█████████▉| 3382/3383 [03:35<00:00, 15.71it/s]
+--- 215.77098536491394 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 361
+100%|█████████▉| 360/361 [00:22<00:00, 15.94it/s]
+--- 22.663000106811523 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3382]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 21
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.704 total time= 6.7min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.675 total time= 7.6min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.695 total time= 7.9min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.677 total time= 9.3min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.683 total time= 9.8min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.684 total time=10.4min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.694 total time=12.2min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.666 total time=12.2min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.698 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.720 total time=12.4min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.679 total time=12.4min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.684 total time=12.4min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.712 total time= 8.8min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.676 total time= 8.7min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.701 total time= 7.7min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.674 total time= 8.3min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.683 total time= 8.2min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.694 total time=14.1min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.675 total time=14.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.679 total time=14.0min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.671 total time=12.1min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.719 total time=14.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.695 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.679 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.679 total time=12.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.694 total time= 7.3min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.663 total time= 8.6min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.678 total time=16.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.704 total time= 8.4min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.672 total time= 9.6min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.685 total time= 9.6min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.688 total time=16.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.712 total time=16.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.691 total time=16.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.673 total time=16.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.672 total time=12.2min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.682 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.712 total time= 7.6min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.665 total time=10.8min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.691 total time= 7.6min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.707 total time=12.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.674 total time=10.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.692 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.675 total time=12.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.683 total time= 8.4min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.677 total time=14.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.679 total time=14.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.717 total time=14.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.691 total time= 8.7min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.704 total time= 9.7min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.677 total time=10.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.686 total time=14.1min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.669 total time=11.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.685 total time=10.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.688 total time=14.1min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.669 total time= 6.9min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.681 total time= 7.1min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.679 total time=15.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.677 total time=15.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.707 total time= 7.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.688 total time= 8.2min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.678 total time=11.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.717 total time=16.1min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.671 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.695 total time=16.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.682 total time=16.1min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.663 total time= 7.7min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.674 total time= 7.7min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.678 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.704 total time= 7.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.706 total time=12.2min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.694 total time=12.3min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.682 total time=12.2min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.692 total time= 8.7min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.683 total time=10.5min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.710 total time= 8.5min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.668 total time= 9.5min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.668 total time=10.8min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.675 total time=14.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.669 total time=14.0min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.717 total time=13.9min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.692 total time=13.9min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.675 total time=13.6min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.694 total time=10.5min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.686 total time=10.8min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.674 total time=11.3min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.668 total time= 9.4min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.709 total time= 7.2min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.682 total time= 7.2min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.664 total time= 7.0min
+trainModel executed in --- 5359.203905820847 seconds ---
+Scores : {'mean_fit_time': array([496.97630858, 735.16873798, 652.93114729, 842.52263045,
+       590.61372499, 959.23279805, 522.3352005 , 728.50380144,
+       543.87619729, 845.07199979, 609.3434    , 960.06619992,
+       481.79920206, 730.96439767, 510.06819954, 833.70840011,
+       601.20879869, 506.14559588]), 'std_fit_time': array([ 67.19883127,   5.96293023, 126.19786666,   0.56146707,
+       131.16219544,   1.0805183 ,  52.08575688,   4.25858744,
+        88.87415264,   1.38946169,  53.38806282,   4.06915886,
+        95.8722976 ,   4.17629272,  62.51609148,   9.88140065,
+        54.97675315, 100.21741737]), 'mean_score_time': array([0.15160084, 0.14599924, 0.1453989 , 0.14640107, 0.15220194,
+       0.15100112, 0.14820013, 0.14179854, 0.14660234, 0.14860282,
+       0.14279737, 0.15520039, 0.14419928, 0.14620004, 0.14899945,
+       0.13919849, 0.13660197, 0.04239941]), 'std_score_time': array([0.0088913 , 0.00756492, 0.00595371, 0.01034511, 0.00785835,
+       0.01352194, 0.00577723, 0.00783319, 0.00932798, 0.00162179,
+       0.00775963, 0.00923719, 0.01192346, 0.00705635, 0.00565579,
+       0.02070299, 0.04590211, 0.02088502]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}], 'split0_test_score': array([0.67651403, 0.6661743 , 0.68389956, 0.67503693, 0.67060561,
+       0.67799114, 0.67208272, 0.67208272, 0.66469719, 0.67651403,
+       0.66912851, 0.67946824, 0.66912851, 0.67060561, 0.66322009,
+       0.67503693, 0.6676514 , 0.67355982]), 'split1_test_score': array([0.67503693, 0.67946824, 0.68389956, 0.67946824, 0.67355982,
+       0.68833087, 0.66322009, 0.68242245, 0.67355982, 0.67946824,
+       0.67651403, 0.67651403, 0.68094535, 0.67799114, 0.67355982,
+       0.66912851, 0.6676514 , 0.6676514 ]), 'split2_test_score': array([0.70414201, 0.7204142 , 0.71153846, 0.71893491, 0.70118343,
+       0.71153846, 0.70414201, 0.70710059, 0.71153846, 0.71745562,
+       0.70414201, 0.71745562, 0.70710059, 0.7056213 , 0.70414201,
+       0.71745562, 0.71005917, 0.70857988]), 'split3_test_score': array([0.69526627, 0.69822485, 0.69378698, 0.69526627, 0.68343195,
+       0.6908284 , 0.69378698, 0.69230769, 0.6908284 , 0.68639053,
+       0.6908284 , 0.69526627, 0.68786982, 0.69378698, 0.69230769,
+       0.69230769, 0.69378698, 0.68195266]), 'split4_test_score': array([0.68343195, 0.69378698, 0.6760355 , 0.67899408, 0.67899408,
+       0.67307692, 0.68491124, 0.67455621, 0.68343195, 0.68786982,
+       0.68491124, 0.68195266, 0.67751479, 0.68195266, 0.68343195,
+       0.67455621, 0.68639053, 0.66420118]), 'mean_test_score': array([0.68687824, 0.69161372, 0.68983201, 0.68954009, 0.68155498,
+       0.68835316, 0.68362861, 0.68569393, 0.68481117, 0.68953965,
+       0.68510484, 0.69013137, 0.68451181, 0.68599154, 0.68333231,
+       0.68569699, 0.6851079 , 0.67918899]), 'std_test_score': array([0.01120631, 0.01828975, 0.01222737, 0.01624713, 0.01076261,
+       0.01329978, 0.01466597, 0.01282188, 0.01602262, 0.01458154,
+       0.01203541, 0.01509309, 0.0128051 , 0.01235429, 0.01423808,
+       0.01768943, 0.01618021, 0.01588018]), 'rank_test_score': array([ 7,  1,  3,  4, 17,  6, 15, 10, 13,  5, 12,  2, 14,  8, 16,  9, 11,
+       18])}
+Best params : {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}
+Best mean cross-validation score : 0.6916137152246685
+
+Reading testing data
+Sequences loaded : [360]
+
+Testing model
+Testing data score : 0.6166666666666667
+
+-------------------------------
+
+Injecting Sequence, variability : 0.25
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 3345
+100%|█████████▉| 3344/3345 [03:28<00:00, 16.00it/s]
+--- 209.37599992752075 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 399
+100%|█████████▉| 398/399 [00:24<00:00, 16.45it/s]
+--- 24.268000602722168 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3344]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 46
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.596 total time= 7.8min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.598 total time= 8.2min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.622 total time= 8.5min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.616 total time= 8.8min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.595 total time= 8.9min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.605 total time=10.6min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.620 total time=10.8min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.595 total time=11.9min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.638 total time=12.0min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.620 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.623 total time=12.1min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.620 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.629 total time= 6.4min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.620 total time= 9.6min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.612 total time=12.6min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.625 total time= 9.5min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.593 total time= 9.7min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.631 total time= 9.8min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.595 total time=13.9min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.629 total time=13.9min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.608 total time=11.5min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.632 total time=13.9min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.614 total time=13.9min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.612 total time=10.9min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.618 total time=13.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.619 total time= 8.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.604 total time= 9.8min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.598 total time=10.1min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.622 total time= 9.7min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.593 total time=15.8min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.609 total time=10.2min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.623 total time=15.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.601 total time=12.0min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.634 total time=15.9min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.622 total time=15.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.622 total time=11.8min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.611 total time=15.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.592 total time= 8.1min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.607 total time=10.4min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.629 total time= 9.4min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.641 total time=12.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.619 total time=12.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.620 total time= 7.6min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.620 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.608 total time=12.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.584 total time=13.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.617 total time=13.9min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.643 total time=13.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.620 total time=13.9min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.590 total time= 9.3min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.634 total time= 9.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.626 total time=10.4min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.606 total time=10.5min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.606 total time=13.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.607 total time=11.4min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.599 total time= 8.1min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.616 total time= 7.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.592 total time=15.8min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.622 total time=10.9min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.614 total time=15.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.620 total time=12.1min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.605 total time=12.0min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.640 total time=16.0min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.614 total time=15.9min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.589 total time=12.3min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.614 total time=16.0min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.617 total time=12.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.634 total time=12.2min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.628 total time=12.2min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.621 total time=12.1min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.614 total time= 8.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.622 total time= 8.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.596 total time=11.9min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.608 total time=12.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.611 total time=11.6min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.598 total time=14.3min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.629 total time=14.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.635 total time=14.3min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.623 total time=14.3min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.602 total time=10.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.626 total time= 9.8min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.623 total time= 9.3min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.623 total time=13.4min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.617 total time=12.6min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.612 total time= 9.6min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.596 total time=10.7min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.625 total time=10.0min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.629 total time= 8.0min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.607 total time= 8.0min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.597 total time= 7.9min
+trainModel executed in --- 5513.588238477707 seconds ---
+Scores : {'mean_fit_time': array([572.63800135, 723.77419996, 535.95299511, 833.76540122,
+       615.97039752, 951.83369789, 573.95289955, 717.38712473,
+       581.67040029, 834.93339911, 618.36879807, 955.62761955,
+       601.92806396, 732.75995965, 621.56504664, 845.98727679,
+       625.9632041 , 534.41999416]), 'std_fit_time': array([ 57.3618385 ,   5.94554231, 125.79678938,   0.73941037,
+        46.0946923 ,   2.23952154,  47.33610598,   3.60820391,
+       113.64045392,   1.99334632,  42.98428801,   4.02466055,
+       125.12927453,   3.48284351, 110.60278547,  21.91422211,
+        73.48486472,  72.03892935]), 'mean_score_time': array([0.14239984, 0.14260058, 0.14560022, 0.15159898, 0.13959961,
+       0.14740238, 0.14500237, 0.15119619, 0.14799938, 0.1372014 ,
+       0.14879928, 0.17579927, 0.16180129, 0.1734004 , 0.18619642,
+       0.16099992, 0.12420754, 0.04259319]), 'std_score_time': array([0.00628001, 0.00598691, 0.00958098, 0.00557168, 0.00773518,
+       0.00403191, 0.00871667, 0.00559966, 0.01048717, 0.00545432,
+       0.00483234, 0.01428962, 0.00966241, 0.00818712, 0.01016847,
+       0.02068784, 0.03176608, 0.01355164]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}], 'split0_test_score': array([0.59491779, 0.59491779, 0.59641256, 0.59491779, 0.59342302,
+       0.59342302, 0.6038864 , 0.60089686, 0.59192825, 0.58445441,
+       0.59043348, 0.59192825, 0.59940209, 0.58893871, 0.59641256,
+       0.59790732, 0.60239163, 0.59641256]), 'split1_test_score': array([0.61584454, 0.62032885, 0.59790732, 0.62929746, 0.6083707 ,
+       0.62331839, 0.59790732, 0.62182362, 0.60687593, 0.61733931,
+       0.60687593, 0.61434978, 0.61584454, 0.61733931, 0.6083707 ,
+       0.62929746, 0.61733931, 0.62481315]), 'split2_test_score': array([0.62032885, 0.63826607, 0.62929746, 0.632287  , 0.62481315,
+       0.63378176, 0.62182362, 0.64125561, 0.62929746, 0.64275037,
+       0.63378176, 0.63976084, 0.62032885, 0.63378176, 0.61434978,
+       0.63527653, 0.62630792, 0.62929746]), 'split3_test_score': array([0.62182362, 0.62331839, 0.62032885, 0.61434978, 0.63079223,
+       0.62182362, 0.61883408, 0.61883408, 0.62032885, 0.62032885,
+       0.62630792, 0.61434978, 0.62182362, 0.62780269, 0.62182362,
+       0.62331839, 0.62331839, 0.60687593]), 'split4_test_score': array([0.60479042, 0.61976048, 0.61227545, 0.61826347, 0.61227545,
+       0.61077844, 0.60928144, 0.61976048, 0.60778443, 0.60628743,
+       0.60628743, 0.61377246, 0.60479042, 0.62125749, 0.61077844,
+       0.62275449, 0.61227545, 0.59730539]), 'mean_test_score': array([0.61154104, 0.61931831, 0.61124433, 0.6178231 , 0.61393491,
+       0.61662505, 0.61034657, 0.62051413, 0.61124298, 0.61423207,
+       0.61273731, 0.61483222, 0.6124379 , 0.61782399, 0.61034702,
+       0.62171084, 0.61632654, 0.6109409 ]), 'std_test_score': array([0.01023113, 0.01394002, 0.0127072 , 0.01324973, 0.01309166,
+       0.01370179, 0.0089595 , 0.01280743, 0.0127484 , 0.01902601,
+       0.01549482, 0.01515003, 0.00883607, 0.01549586, 0.0083186 ,
+       0.01274257, 0.00848684, 0.01373264]), 'rank_test_score': array([13,  3, 14,  5, 10,  6, 18,  2, 15,  9, 11,  8, 12,  4, 17,  1,  7,
+       16])}
+Best params : {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}
+Best mean cross-validation score : 0.6217108384128603
+
+Reading testing data
+Sequences loaded : [398]
+
+Testing model
+Testing data score : 0.6231155778894473
+
+-------------------------------
+
+Injecting Sequence, variability : 0.30000000000000004
+Splitting training and testing data
+Making BOWs (training)
+Total number of lines in file : 3374
+100%|█████████▉| 3373/3374 [03:29<00:00, 16.08it/s]
+--- 210.23800134658813 seconds ---
+Making BOWs (testing)
+Total number of lines in file : 370
+100%|█████████▉| 369/370 [00:24<00:00, 15.25it/s]
+--- 24.26800036430359 seconds ---
+Building model
+Reading training data
+Sequences loaded : [3373]
+
+Model type : Perceptron
+{'gridSearchParams': {'hidden_layer_sizes': [5, 10, 15], 'solver': ['sgd'], 'activation': ['logistic'], 'alpha': array([0.1  , 0.01 , 0.001]), 'learning_rate': ['adaptive'], 'learning_rate_init': [0.01, 0.001]}, 'scoring': 'accuracy', 'cvFolds': 5}
+random_state : 67
+
+Training model (scaled)
+Fitting 5 folds for each of 18 candidates, totalling 90 fits
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.559 total time= 6.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.563 total time= 7.5min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.567 total time= 8.2min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.587 total time= 8.2min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.562 total time= 8.7min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.585 total time=10.1min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.566 total time=10.7min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.555 total time=12.1min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.618 total time=12.1min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.564 total time=12.1min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.579 total time=12.1min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.569 total time=12.3min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.588 total time= 8.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.574 total time= 9.8min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.559 total time=10.4min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.567 total time= 9.7min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.560 total time= 9.9min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.566 total time=14.0min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.576 total time=14.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.568 total time=10.6min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.597 total time=11.3min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.576 total time=14.0min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.586 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.540 total time=14.0min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.565 total time=13.4min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.591 total time= 7.2min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.584 total time= 8.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.579 total time= 8.0min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.570 total time=10.5min
+[CV 1/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.553 total time=16.0min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.565 total time= 9.7min
+[CV 2/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.579 total time=16.1min
+[CV 3/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.590 total time=16.2min
+[CV 4/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.574 total time=16.3min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.559 total time=12.2min
+[CV 5/5] END activation=logistic, alpha=0.1, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.545 total time=16.2min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.573 total time=12.2min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.576 total time= 9.5min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.607 total time=12.3min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.587 total time= 8.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.582 total time= 8.9min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.579 total time=12.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.552 total time=12.2min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.564 total time=13.2min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.549 total time=12.7min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.563 total time=14.3min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.582 total time=14.3min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.600 total time=14.3min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.573 total time= 9.3min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.593 total time=10.3min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.576 total time=14.2min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.567 total time=11.8min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.552 total time=14.3min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.579 total time=13.8min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.555 total time=14.9min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.573 total time= 8.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.594 total time= 8.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.576 total time= 9.2min
+[CV 1/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.569 total time=16.2min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.583 total time= 8.5min
+[CV 2/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.567 total time=16.3min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.559 total time=11.5min
+[CV 3/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.599 total time=16.2min
+[CV 4/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.583 total time=16.3min
+[CV 5/5] END activation=logistic, alpha=0.010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.549 total time=16.2min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.566 total time=12.3min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.572 total time=12.2min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.567 total time= 8.7min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.572 total time=11.3min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.576 total time=12.2min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.597 total time=12.4min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=5, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.550 total time=12.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.587 total time=10.7min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.571 total time=10.5min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.558 total time=12.5min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.566 total time=14.3min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.563 total time=14.3min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.557 total time= 9.7min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.603 total time=14.3min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.594 total time= 9.8min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.577 total time=10.2min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.584 total time=10.7min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.582 total time=13.9min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=10, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.540 total time=13.7min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.01, solver=sgd;, score=0.553 total time=10.3min
+[CV 1/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.554 total time=10.5min
+[CV 2/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.572 total time= 8.9min
+[CV 3/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.607 total time= 7.5min
+[CV 4/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.580 total time= 7.4min
+[CV 5/5] END activation=logistic, alpha=0.0010000000000000002, hidden_layer_sizes=15, learning_rate=adaptive, learning_rate_init=0.001, solver=sgd;, score=0.555 total time= 7.1min
+trainModel executed in --- 5516.224947452545 seconds ---
+Scores : {'mean_fit_time': array([526.7247344 , 728.85733318, 526.08349404, 841.04662166,
+       660.54082026, 970.48006945, 533.31102767, 734.60011644,
+       639.37589149, 856.15698395, 721.05512166, 974.82068443,
+       548.30742188, 735.80358133, 644.42375369, 847.25259862,
+       608.80948167, 497.06021414]), 'std_fit_time': array([ 95.720371  ,   4.91843055,  66.01643226,   1.37280866,
+        79.96923781,   4.71794032,  70.37409706,   0.71302418,
+       114.73584369,   0.83851307, 125.1438551 ,   1.65545836,
+        73.16758219,   4.78250377,  74.0597733 ,  15.33418941,
+        22.17745714,  75.63970502]), 'mean_score_time': array([0.14380193, 0.14120245, 0.14540105, 0.15159965, 0.1535996 ,
+       0.16700115, 0.14220047, 0.17560277, 0.17619891, 0.17279878,
+       0.17679939, 0.17159939, 0.17059855, 0.17700129, 0.18060031,
+       0.15179319, 0.13800063, 0.04520183]), 'std_score_time': array([0.00559963, 0.00696918, 0.00280063, 0.00685739, 0.00771051,
+       0.01326536, 0.00661747, 0.01092663, 0.0114439 , 0.00886224,
+       0.00844826, 0.00445464, 0.01223961, 0.01067535, 0.01483993,
+       0.03562462, 0.02927185, 0.01460781]), 'param_activation': masked_array(data=['logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic', 'logistic', 'logistic',
+                   'logistic', 'logistic'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_alpha': masked_array(data=[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.010000000000000002,
+                   0.010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002, 0.0010000000000000002,
+                   0.0010000000000000002],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_hidden_layer_sizes': masked_array(data=[5, 5, 10, 10, 15, 15, 5, 5, 10, 10, 15, 15, 5, 5, 10,
+                   10, 15, 15],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate': masked_array(data=['adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive', 'adaptive', 'adaptive',
+                   'adaptive', 'adaptive'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_learning_rate_init': masked_array(data=[0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001, 0.01, 0.001, 0.01, 0.001, 0.01, 0.001,
+                   0.01, 0.001],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'param_solver': masked_array(data=['sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd', 'sgd',
+                   'sgd', 'sgd'],
+             mask=[False, False, False, False, False, False, False, False,
+                   False, False, False, False, False, False, False, False,
+                   False, False],
+       fill_value='?',
+            dtype=object), 'params': [{'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.1, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}, {'activation': 'logistic', 'alpha': 0.0010000000000000002, 'hidden_layer_sizes': 15, 'learning_rate': 'adaptive', 'learning_rate_init': 0.001, 'solver': 'sgd'}], 'split0_test_score': array([0.56592593, 0.56444444, 0.56740741, 0.56592593, 0.56      ,
+       0.55259259, 0.57037037, 0.55851852, 0.56444444, 0.56296296,
+       0.56740741, 0.56888889, 0.5762963 , 0.56592593, 0.57185185,
+       0.56592593, 0.55703704, 0.55407407]), 'split1_test_score': array([0.55851852, 0.56888889, 0.56296296, 0.5762963 , 0.56740741,
+       0.57925926, 0.5837037 , 0.57333333, 0.5762963 , 0.58222222,
+       0.57925926, 0.56740741, 0.57333333, 0.57185185, 0.56740741,
+       0.56296296, 0.5837037 , 0.57185185]), 'split2_test_score': array([0.58666667, 0.61777778, 0.58814815, 0.5762963 , 0.59703704,
+       0.58962963, 0.59111111, 0.60740741, 0.58666667, 0.6       ,
+       0.59259259, 0.59851852, 0.59407407, 0.59703704, 0.58666667,
+       0.60296296, 0.59407407, 0.60740741]), 'split3_test_score': array([0.58456973, 0.57863501, 0.57418398, 0.58605341, 0.56824926,
+       0.57418398, 0.57863501, 0.57863501, 0.58160237, 0.57566766,
+       0.5727003 , 0.58308605, 0.58308605, 0.57566766, 0.57121662,
+       0.58160237, 0.57715134, 0.58011869]), 'split4_test_score': array([0.56231454, 0.55489614, 0.55934718, 0.54005935, 0.5652819 ,
+       0.54451039, 0.5652819 , 0.55192878, 0.54896142, 0.55192878,
+       0.55489614, 0.54896142, 0.55934718, 0.5504451 , 0.5578635 ,
+       0.54005935, 0.55341246, 0.55489614]), 'mean_test_score': array([0.57159908, 0.57692845, 0.57040994, 0.56892626, 0.57159512,
+       0.56803517, 0.57782042, 0.57396461, 0.57159424, 0.57455632,
+       0.57337114, 0.57337246, 0.57722739, 0.57218551, 0.57100121,
+       0.57070271, 0.57307572, 0.57366963]), 'std_test_score': array([0.01170264, 0.0218059 , 0.01015623, 0.01577514, 0.01304091,
+       0.01686415, 0.0092156 , 0.01931213, 0.01351158, 0.01645475,
+       0.01250181, 0.01660278, 0.01143562, 0.01511068, 0.00929184,
+       0.02088666, 0.01558447, 0.01959368]), 'rank_test_score': array([11,  3, 16, 17, 12, 18,  1,  5, 13,  4,  8,  7,  2, 10, 14, 15,  9,
+        6])}
+Best params : {'activation': 'logistic', 'alpha': 0.010000000000000002, 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive', 'learning_rate_init': 0.01, 'solver': 'sgd'}
+Best mean cross-validation score : 0.5778204198263545
+
+Reading testing data
+Sequences loaded : [369]
+
+Testing model
+Testing data score : 0.5392953929539296
+
+-------------------------------
+
+
+Process finished with exit code 0
