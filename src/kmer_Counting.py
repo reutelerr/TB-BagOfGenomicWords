@@ -26,7 +26,6 @@ def occurenceFreqAsSubSeq(seq, frequent_seq_indexes):
     return maxOccurenceFreq
 
 def countKmers(sequence, kmerCounts, nucleotideCounter, kmerLength, newCounts) :
-
     for i in range(len(sequence) - kmerLength + 1):
         nucleotideCounter += 1
         kmer = sequence[i:i + kmerLength]

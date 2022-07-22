@@ -1,9 +1,11 @@
 import json
+import os
 import sys
 import random
 
 import numpy
 import sklearn
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
@@ -16,7 +18,6 @@ from src.constants import metaParameters
 
 metaParams = metaParameters.get('modelTraining')
 cvFolds = metaParams.get('cvFolds')
-gridSearchParams = metaParams.get('gridSearchParams')
 scoring = metaParams.get('scoring')
 
 @timerWrapper
@@ -57,7 +58,7 @@ def trainModel(model, dataset, labels):
     return model
 
 @timerWrapper
-def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testingFilePath, testingLabelsFilePath, verbose=3):
+def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testingFilePath, testingLabelsFilePath, randomState=None, resultsFilePath=None, verbose=3):
     random.seed()
 
     print("Reading training data")
@@ -67,18 +68,21 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
     scaledAndNormalizedTrainingBOWs = sklearn.preprocessing.normalize(scaledTrainingBOWs)
     model = None
     gridSearcher = None
+    gridSearchParams = metaParams[modelType]['gridSearchParams']
 
     print("Model type : "+modelType)
     if modelType == "KNN":
-        n_neighbors = 5
-        model = KNeighborsClassifier(n_neighbors=n_neighbors)
-        print("n_neighbors : "+str(n_neighbors))
-    if modelType == "Perceptron":
-        random_state = random.randint(1, 100)
-        model = MLPClassifier(max_iter=500)
-        gridSearcher = GridSearchCV(model, gridSearchParams, cv=cvFolds, scoring=scoring, verbose=verbose, n_jobs=12)
-        print(metaParams)
-        print("random_state : "+str(random_state))
+        model = KNeighborsClassifier()
+    if modelType == "MLP":
+        model = MLPClassifier(max_iter=500, random_state=randomState)
+    if modelType == "RandomForest":
+        model = RandomForestClassifier()
+    # TODO
+    print(str(gridSearchParams))
+    print("random_state : " + str(randomState))
+    gridSearcher = GridSearchCV(model, metaParams['RandomForest']['gridSearchParams'], cv=cvFolds, scoring=scoring, verbose=verbose, n_jobs=os.cpu_count())
+
+
 
     print("\nTraining model (scaled)")
     (gridSearcher) = trainModel(gridSearcher, scaledTrainingBOWs, trainingLabels)
@@ -91,22 +95,41 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
     paramStats = {}
     for name, values in gridSearchParams.items():
         paramMeanScores = {}
-        for value in values:
-            scoreValues = []
-            fitTimeValues = []
-            for i in range(len(paramSets)):
-                if(paramSets[i].get(name) == value):
-                    scoreValues.append(meanScores[i])
-                    fitTimeValues.append(meanFitTimes[i])
-            paramMeanScores[value] = {'meanScore': mean(scoreValues), 'meanFitTime': mean(fitTimeValues)}
+        if len(values) > 1:
+            for value in values:
+                scoreValues = []
+                fitTimeValues = []
+                for i in range(len(paramSets)):
+                    if(paramSets[i].get(name) == value):
+                        scoreValues.append(meanScores[i])
+                        fitTimeValues.append(meanFitTimes[i])
+                paramMeanScores[value] = {'meanScore': mean(scoreValues), 'meanFitTime': mean(fitTimeValues)}
         paramStats[name] = paramMeanScores
+
+    #Getting mean scores for each fold
+    meanFoldScores = []
+    for i in range(0, cvFolds):
+        foldScores = results.get('split'+str(i)+'_test_score')
+        meanFoldScores.append(mean(foldScores))
+
+    shortResults = {
+        'variability': metaParams['sequenceInjection']['variability'],
+        'params': metaParams[modelType],
+        'paramStats': paramStats,
+        'meanFoldScores': meanFoldScores
+    }
+
+    if resultsFilePath is not None:
+        resultsFile = open(resultsFilePath, 'a')
+        resultsFile.write(json.dumps(shortResults, indent=4))
+
+    print("Raw results : "+str(gridSearcher.cv_results_))
+    print("\n")
     print("Parameter mean stats: ")
     print(paramStats)
-
-
-    print("Scores : "+str(gridSearcher.cv_results_))
     print("Best params : " + str(gridSearcher.best_params_))
     print("Best mean cross-validation score : " + str(max(gridSearcher.cv_results_['mean_test_score'])))
+    print("Refit time for best score : " + str(gridSearcher.refit_time_))
 
     print("\nReading testing data")
     (testingBOWs, testingLabels) = prepareData(testingFilePath, testingLabelsFilePath)

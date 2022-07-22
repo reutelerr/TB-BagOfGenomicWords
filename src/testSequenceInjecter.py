@@ -89,8 +89,10 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, variabilityType='ran
                 if variabilityType == 'randomPosition':
                     if variability>0:
                         for i in range(len(injectedSequence)):
-                            if random.random()<variability:
-                                modifiedSequence += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
+                            if random.random()<variability/len(injectedSequence):
+                                otherNucleotideValues = nucleotideValues.copy()
+                                otherNucleotideValues.remove(injectedSequence[i])
+                                modifiedSequence += otherNucleotideValues[random.randint(0, len(otherNucleotideValues)-1)]
                             else:
                                 modifiedSequence += injectedSequence[i]
                     else:
@@ -98,6 +100,8 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, variabilityType='ran
                 if variabilityType == 'fixedPosition':
                     for i in range(len(injectedSequence)):
                         if i in fixedVariabilityIndexes:
+                            otherNucleotideValues = nucleotideValues.copy()
+                            otherNucleotideValues.remove(injectedSequence[i])
                             modifiedSequence += nucleotideValues[random.randint(0, len(nucleotideValues)-1)]
                         else:
                             modifiedSequence += injectedSequence[i]
