@@ -11,8 +11,11 @@ from matplotlib import pyplot
 from src.constants import *
 from src.utils import blocks, timerWrapper
 
+maxKmerLength = metaParameters['vectorization']['maxKmerLength']
+minKmerLength = metaParameters['vectorization']['minKmerLength']
+
 @timerWrapper
-def needlemanWunschInjectedSequence(seqFilePath, outputPath  = None, sourceType=CSV):
+def needlemanWunschInjectedSequence(seqFilePath, outputPath=None, sourceType=CSV):
     injectedSequence = metaParameters['sequenceInjection']['injectedSequence']
     seqFile = open(seqFilePath)
     noLines = sum(bl.count("\n") for bl in blocks(seqFile))
@@ -62,6 +65,12 @@ def needlemanWunschInjectedSequence(seqFilePath, outputPath  = None, sourceType=
     pyplot.boxplot(scores)
     pyplot.title('Best Needleman-Wunsch alignement scores')
     pyplot.show()
+
+
+def kmerLoss(substitutionIndexes, sequence=metaParameters['sequenceInjection']['injectedSequence']):
+    kmerTotal = ((len(sequence)+1)*(maxKmerLength+1-minKmerLength))+minKmerLength-((maxKmerLength*(maxKmerLength+1))/2)#Number of kmers the unaltered sequence is composed of
+    #TODO
+
 
 @timerWrapper
 def injectSequence(seqFilePath, newFilePath, labelFilePath, variabilityType='randomPosition', sourceType=CSV):

@@ -9,6 +9,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
+from sklearn.metrics import confusion_matrix
 from statistics import mean
 import warnings
 
@@ -16,9 +17,9 @@ from src import utils
 from src.utils import timerWrapper
 from src.constants import metaParameters
 
-metaParams = metaParameters.get('modelTraining')
-cvFolds = metaParams.get('cvFolds')
-scoring = metaParams.get('scoring')
+modelParams = metaParameters.get('modelTraining')
+cvFolds = modelParams.get('cvFolds')
+scoring = modelParams.get('scoring')
 
 @timerWrapper
 def readBOWFile(seqFile):
@@ -41,13 +42,13 @@ def readBOWFile(seqFile):
     return data
 
 @timerWrapper
-def prepareData(seqFilePath, labelsFilePath):
+def readData(seqFilePath, labelsFilePath):
     seqFile = open(seqFilePath)
     labelsFile = open(labelsFilePath)
     data = readBOWFile(seqFile)
     seq_BOWs = [counts for (index, nulceotideCount, vecLength, counts) in data]
     countValues = numpy.array([list(seq_BOW.values()) for seq_BOW in seq_BOWs])
-    labels = labelsFile.readlines()
+    labels = [int(labelLine[0]) for labelLine in labelsFile.readlines()]
     seqFile.close()
     labelsFile.close()
     return (countValues, labels)
@@ -62,13 +63,13 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
     random.seed()
 
     print("Reading training data")
-    (trainingBOWs, trainingLabels) = prepareData(trainingFilePath, trainingLabelsFilePath)
+    (trainingBOWs, trainingLabels) = readData(trainingFilePath, trainingLabelsFilePath)
     scaler = sklearn.preprocessing.StandardScaler().fit(trainingBOWs)
     scaledTrainingBOWs = scaler.transform(trainingBOWs)
     scaledAndNormalizedTrainingBOWs = sklearn.preprocessing.normalize(scaledTrainingBOWs)
     model = None
     gridSearcher = None
-    gridSearchParams = metaParams[modelType]['gridSearchParams']
+    gridSearchParams = modelParams[modelType]['gridSearchParams']
 
     print("Model type : "+modelType)
     if modelType == "KNN":
@@ -80,9 +81,7 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
     # TODO
     print(str(gridSearchParams))
     print("random_state : " + str(randomState))
-    gridSearcher = GridSearchCV(model, metaParams['RandomForest']['gridSearchParams'], cv=cvFolds, scoring=scoring, verbose=verbose, n_jobs=os.cpu_count())
-
-
+    gridSearcher = GridSearchCV(model, modelParams[modelType]['gridSearchParams'], cv=cvFolds, scoring=scoring, verbose=verbose, n_jobs=os.cpu_count())
 
     print("\nTraining model (scaled)")
     (gridSearcher) = trainModel(gridSearcher, scaledTrainingBOWs, trainingLabels)
@@ -103,7 +102,7 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
                     if(paramSets[i].get(name) == value):
                         scoreValues.append(meanScores[i])
                         fitTimeValues.append(meanFitTimes[i])
-                paramMeanScores[value] = {'meanScore': mean(scoreValues), 'meanFitTime': mean(fitTimeValues)}
+                paramMeanScores[str(value)] = {'meanScore': mean(scoreValues), 'meanFitTime': mean(fitTimeValues)}
         paramStats[name] = paramMeanScores
 
     #Getting mean scores for each fold
@@ -112,16 +111,7 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
         foldScores = results.get('split'+str(i)+'_test_score')
         meanFoldScores.append(mean(foldScores))
 
-    shortResults = {
-        'variability': metaParams['sequenceInjection']['variability'],
-        'params': metaParams[modelType],
-        'paramStats': paramStats,
-        'meanFoldScores': meanFoldScores
-    }
 
-    if resultsFilePath is not None:
-        resultsFile = open(resultsFilePath, 'a')
-        resultsFile.write(json.dumps(shortResults, indent=4))
 
     print("Raw results : "+str(gridSearcher.cv_results_))
     print("\n")
@@ -132,11 +122,25 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
     print("Refit time for best score : " + str(gridSearcher.refit_time_))
 
     print("\nReading testing data")
-    (testingBOWs, testingLabels) = prepareData(testingFilePath, testingLabelsFilePath)
+    (testingBOWs, testingLabels) = readData(testingFilePath, testingLabelsFilePath)
     scaledTestingBOWs = sklearn.preprocessing.scale(testingBOWs)
     print("Testing model")
     testing_scaled_score = gridSearcher.score(scaledTestingBOWs, testingLabels)
+    confusionMatrix = confusion_matrix(testingLabels, gridSearcher.predict(scaledTestingBOWs))
     print("Testing data score : " + str(testing_scaled_score))
+    print("Testing data confusion matrix : " + str(confusionMatrix))
+
+    shortResults = {
+            'variability': metaParameters['sequenceInjection']['variability'],
+            'params': modelParams[modelType],
+            'paramStats': paramStats,
+            'meanFoldScores': meanFoldScores
+        }
+
+    if resultsFilePath is not None:
+        resultsFile = open(resultsFilePath, 'a')
+        resultsFile.write(json.dumps(shortResults, indent=4))
+
     return testing_scaled_score, gridSearcher.refit_time_
 
 

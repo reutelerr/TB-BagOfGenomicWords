@@ -42,17 +42,43 @@ def CSVtoFASTA(csvfilePath, fastaFilePath):
     fastaFile.close()
     csvFile.close()
 
+def FASTAtoCSV(fastaFilePath, csvFilePath):
+    csvFile = open(csvFilePath, 'w')
+    fastaFile = open(fastaFilePath)
+    noLines = sum(bl.count("\n") for bl in blocks(fastaFile))
+    fastaFile.seek(0)
+    with tqdm(total=noLines, position=0, leave=True) as pbar:
+        headers = "fasta_head, sequence"
+        line = csvFile.readline()
+        while line:
+            pbar.update(1)
+            lineElements = line.split(',')
+            head = lineElements[3]
+            startIndex = head.index('>')
+            head = head[startIndex:] + ' ' + lineElements[4]
+            head = head.replace('\"', '')
+            sequence = lineElements[-1].lower()
+
+            fastaFile.write(head + '\n')
+            fastaFile.write(sequence)
+            fastaFile.write('\n')
+            line = csvFile.readline()
+
+    fastaFile.close()
+    csvFile.close()
+
+
 #Randomly separates training and testing data
-def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingSeqFilePath, trainingLabelFilePath, testingSeqFilePath, testingLabelFilePath, split = 0.9):
+def splitTrainingAndTesting(seqFilePath, labelFilePath, trainingFolder, testingFolder, split = 0.9):
     seqFile = open(seqFilePath)
     labelFile = open(labelFilePath)
 
-    os.makedirs(os.path.dirname(trainingSeqFilePath), exist_ok=True)
-    trainingSeqFile = open(trainingSeqFilePath, "w")
-    trainingLabelFile = open(trainingLabelFilePath, "w")
-    os.makedirs(os.path.dirname(testingSeqFilePath), exist_ok=True)
-    testingSeqFile = open(testingSeqFilePath, "w")
-    testingLabelFile = open(testingLabelFilePath, "w")
+    os.makedirs(os.path.dirname(trainingFolder), exist_ok=True)
+    trainingSeqFile = open(trainingFolder+"seq.csv", "w")
+    trainingLabelFile = open(trainingFolder+"labels.txt", "w")
+    os.makedirs(os.path.dirname(testingFolder), exist_ok=True)
+    testingSeqFile = open(testingFolder+"seq.csv", "w")
+    testingLabelFile = open(testingFolder+"labels.txt", "w")
 
     random.seed()
 

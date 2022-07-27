@@ -87,18 +87,32 @@ def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
             seqFile.close()
             output.close()
 
+        if sourceType == FASTA:
+            for line in seqFile:
+                pbar.update(1)
+                if line[0] == '>':
+                    if sequence != "":
+                        nucleotideCounter = countKmers(sequence, kmerCounts, nucleotideCounter, length, False)
+                    sequence = ""
+                    sequenceCount += 1
+                else:
+                    rawLine = line[:len(line) - 1]
+                    sequence = sequence + rawLine  # Stitching the sequence back together line by line>
+            if sequence != "":
+                countKmers(sequence, kmerCounts, nucleotideCounter, length, False)
+
 
 
 @timerWrapper
 def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
-    sequence_file = open(sourcePath)
+    seqFile = open(sourcePath)
 
-    noLines = sum(bl.count("\n") for bl in blocks(sequence_file))
+    noLines = sum(bl.count("\n") for bl in blocks(seqFile))
     print("Total number of lines in file : "+str(noLines))
 
     for length in range(maxKmerLength, 2, -1):
         print("Counting K-mers of length : "+str(length))
-        sequence_file.seek(0)
+        seqFile.seek(0)
         time.sleep(0.01)
 
         sequenceCount = 0
@@ -112,7 +126,7 @@ def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
 
             #Reading the file
             if sourceType == FASTA:
-                for line in sequence_file:
+                for line in seqFile:
                     pbar.update(1)
                     if sequenceCount < seqLimiter:
                         if line[0] == '>':
@@ -126,21 +140,21 @@ def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
                 if sequence != "":
                     countKmers(sequence, kmerCounts, nucleotideCounter, length, False)
             if sourceType == CSV:
-                headers = sequence_file.readline().split(',')
-                line = sequence_file.readline()
+                headers = seqFile.readline().split(',')
+                line = seqFile.readline()
                 while line:
                     pbar.update(1)
                     lineElements = line.split(',')
                     id = lineElements[0]
                     sequence = lineElements[-1].lower()[:len(lineElements[-1])-1]
                     nucleotideCounter = countKmers(sequence, kmerCounts, nucleotideCounter, length, False)
-                    line = sequence_file.readline()
+                    line = seqFile.readline()
 
             os.makedirs(os.path.dirname(dictionaryFileName), exist_ok=True)
             dictionaryFile = open(dictionaryFileName, "w")
             dictionaryFile.write(json.dumps((nucleotideCounter, kmerCounts), indent=4))
         dictionaryFile.close()
-    sequence_file.close()
+    seqFile.close()
 
 @timerWrapper
 def filterByFrequency(dictionaryFilePath):
@@ -151,7 +165,7 @@ def filterByFrequency(dictionaryFilePath):
         frequent_kmers[length - 1] = {}
 
 
-        for kmer in tqdm(kmerCounts):
+        for kmer in kmerCounts:
             noOfOccurences = kmerCounts[kmer]
             if noOfOccurences > nucleotideCount/pow(4, len(kmer)/filterThresholdLengthModifier) * minimumFrequencyThreshold:
                 # occurences independent of longer frequent seq

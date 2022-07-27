@@ -3,5 +3,6 @@ console_output.txt
 *.fasta
 *.csv
 *.json
+*.fna
 labels.txt
 venv
