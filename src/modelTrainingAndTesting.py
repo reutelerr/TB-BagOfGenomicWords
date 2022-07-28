@@ -5,11 +5,12 @@ import random
 
 import numpy
 import sklearn
+from matplotlib import pyplot as plt
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import cross_val_score, GridSearchCV
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neural_network import MLPClassifier
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, roc_curve, auc
 from statistics import mean
 import warnings
 
@@ -127,21 +128,47 @@ def trainAndTestModel(modelType, trainingFilePath, trainingLabelsFilePath, testi
     print("Testing model")
     testing_scaled_score = gridSearcher.score(scaledTestingBOWs, testingLabels)
     confusionMatrix = confusion_matrix(testingLabels, gridSearcher.predict(scaledTestingBOWs))
+    y_pred_proba = gridSearcher.predict_proba(testingBOWs)
+
+    fpr, tpr, _ = roc_curve(testingLabels, y_pred_proba[:, 1])
+    roc_auc = auc(fpr, tpr)
+    print("roc_auc score = "+str(roc_auc))
+
+    plt.figure()
+    lw = 2
+    plt.plot(
+        fpr,
+        tpr,
+        color="darkorange",
+        lw=lw,
+        label="ROC curve (area = %0.2f)" % roc_auc,
+    )
+    plt.plot([0, 1], [0, 1], color="navy", lw=lw, linestyle="--")
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel("False Positive Rate")
+    plt.ylabel("True Positive Rate")
+    plt.title("Receiver operating characteristic")
+    plt.legend(loc="lower right")
+    plt.show()
+
     print("Testing data score : " + str(testing_scaled_score))
     print("Testing data confusion matrix : " + str(confusionMatrix))
 
     shortResults = {
+            'injectionrate': metaParameters['sequenceInjection']['injectionRate'],
             'variability': metaParameters['sequenceInjection']['variability'],
             'params': modelParams[modelType],
             'paramStats': paramStats,
-            'meanFoldScores': meanFoldScores
+            'meanFoldScores': meanFoldScores,
+            'bestConfusionMatrix': str(confusion_matrix),
         }
 
     if resultsFilePath is not None:
         resultsFile = open(resultsFilePath, 'a')
         resultsFile.write(json.dumps(shortResults, indent=4))
 
-    return testing_scaled_score, gridSearcher.refit_time_
+    return testing_scaled_score, gridSearcher.refit_time_, gridSearcher
 
 
 

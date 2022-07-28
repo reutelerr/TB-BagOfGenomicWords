@@ -1,3 +1,4 @@
+import random
 import numpy as np
 
 NEW = 0
@@ -9,19 +10,21 @@ CSV = 1
 
 nucleotideValues = ['a', 'c', 'g', 't']
 
+randomStateSeed = random.randint(0, 100)
+
 metaParameters = {
     'vectorization': {
         'minimumFrequencyThreshold': 0.5,
         'minKmerLength': 3,
         'maxKmerLength': 10,
-        'filterThresholdLengthModifier': 1.2,
+        'filterThresholdLengthModifier': 1.1,
     },
     'sequenceInjection': {
         'injectedSequence': 'gcaattagatctaatgggacggaggcct',
         'injectionRate': 0.5,
         'variabilityType': 'fixedPosition',
         'variability': 2, #Number of substituted nucleotides in the sequence (average in the case of random variability)
-        'fixedVariabilityIndexes': [],
+        'fixedVariabilityIndexes': [3, 17],
         'noOfConfigurations': 10
     },
     'modelTraining': {
@@ -43,9 +46,9 @@ metaParameters = {
         },
         'RandomForest': {
             'gridSearchParams': {
-                'n_estimators': [200, 400, 800],
-                'min_samples_split': [1, 2, 3, 5, 10],
-                'min_samples_leaf': [1, 2, 3, 5, 10],
+                'n_estimators': [400],
+                'min_samples_split': [5],
+                'min_samples_leaf': [1],
                 'max_features': ['sqrt']
             }
         },

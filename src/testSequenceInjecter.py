@@ -93,7 +93,7 @@ def injectSequence(seqFilePath, newFilePath, labelFilePath, variabilityType='ran
         newFile.write(headerLine)
         line = seqFile.readline()
         while line:
-            if random.random()<injectionRate :
+            if random.random() < injectionRate:
                 modifiedSequence = ""
                 if variabilityType == 'randomPosition':
                     if variability>0:

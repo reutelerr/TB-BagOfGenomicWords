@@ -1,7 +1,9 @@
 import json
 import os
+import threading
 import time
 
+import numpy as np
 from tqdm import tqdm
 
 from src.constants import CSV, FASTA, metaParameters
@@ -25,6 +27,7 @@ def occurenceFreqAsSubSeq(seq, frequent_seq_indexes):
                 maxOccurenceFreq = seqMap[frequentSeq]
     return maxOccurenceFreq
 
+
 def countKmers(sequence, kmerCounts, nucleotideCounter, kmerLength, newCounts) :
     for i in range(len(sequence) - kmerLength + 1):
         nucleotideCounter += 1
@@ -35,6 +38,26 @@ def countKmers(sequence, kmerCounts, nucleotideCounter, kmerLength, newCounts) :
             if not newCounts:
                 kmerCounts[kmer] = 1
     return nucleotideCounter + kmerLength
+
+
+def writeDictionaryPage(sequences, length, dictionaryPath):
+    sequenceCount = 0
+    sequence = ""
+    kmerCounts = {}
+    nucleotideCounter = 0
+
+    dictionaryFileName = dictionaryPath + "/kmerCounts" + str(length) + ".json"
+
+    with tqdm(total=len(sequences), position=0, leave=True) as pbar:
+        for sequence in sequences:
+            nucleotideCounter = countKmers(sequence, kmerCounts, nucleotideCounter, length, False)
+            if length == maxKmerLength:
+                pbar.update(1)
+    os.makedirs(os.path.dirname(dictionaryFileName), exist_ok=True)
+    dictionaryFile = open(dictionaryFileName, "w")
+    dictionaryFile.write(json.dumps((nucleotideCounter, kmerCounts), indent=4))
+    dictionaryFile.close()
+
 
 @timerWrapper
 def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
@@ -72,8 +95,7 @@ def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
 
                     dictionaryFileName = dictionaryPath + "/kmerCounts" + str(length) + ".json"
                     dictionaryFile = open(dictionaryFileName, "rb")
-                    (nucleotideCount, validKmers) = json.load(dictionaryFile)
-
+                    (nucleotideCount, size, validKmers) = json.load(dictionaryFile)
                     for entry in validKmers:
                         validKmers[entry] = 0
                     nucleotideCounter = countKmers(sequence, validKmers, nucleotideCounter, length, True)
@@ -104,7 +126,7 @@ def vectorize(dictionaryPath, sourcePath, outputPath, sourceType):
 
 
 @timerWrapper
-def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
+def buildDictionary(mode, dictionaryPath, sourcePath, sourceType=CSV):
     seqFile = open(sourcePath)
 
     noLines = sum(bl.count("\n") for bl in blocks(seqFile))
@@ -156,6 +178,8 @@ def buildDictionary(mode, dictionaryPath, sourcePath, sourceType = CSV):
         dictionaryFile.close()
     seqFile.close()
 
+
+
 @timerWrapper
 def filterByFrequency(dictionaryFilePath):
     frequent_kmers = [None] * maxKmerLength
@@ -164,19 +188,15 @@ def filterByFrequency(dictionaryFilePath):
         (nucleotideCount, kmerCounts) = json.load(kmerCountFile)
         frequent_kmers[length - 1] = {}
 
-
         for kmer in kmerCounts:
             noOfOccurences = kmerCounts[kmer]
             if noOfOccurences > nucleotideCount/pow(4, len(kmer)/filterThresholdLengthModifier) * minimumFrequencyThreshold:
-                # occurences independent of longer frequent seq
-                #noOfEffectiveOccurences = kmerCounts[kmer] - occurenceFreqAsSubSeq(kmer, frequent_kmers[length:maxLength - 1])
-                #if noOfEffectiveOccurences > nucleotideCount/pow(4, len(kmer)) * minimumFrequencyThreshold :  # Removing any non-frequent kner
-                    dic = frequent_kmers[length - 1]
-                    dic[kmer] = kmerCounts[kmer]
+                dic = frequent_kmers[length - 1]
+                dic[kmer] = kmerCounts[kmer]
 
         kmerCountFile.close()
         kmerCountFile = open(dictionaryFilePath + "/kmerCounts" + str(length) + ".json", "w")
-        kmerCountFile.write(json.dumps((nucleotideCount, frequent_kmers[length-1]), indent=4))
+        kmerCountFile.write(json.dumps((nucleotideCount, len(frequent_kmers[length-1]), frequent_kmers[length-1]), indent=4))
         kmerCountFile.close()
 
 

@@ -1,5 +1,5 @@
 sequences/synthetic_sequences.fasta
-console_output.txt
+results
 *.fasta
 *.csv
 *.json
