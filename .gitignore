@@ -1,4 +1,5 @@
 sequences/synthetic_sequences.fasta
+.idea/*
 *.fasta
 *.csv
 *.json
