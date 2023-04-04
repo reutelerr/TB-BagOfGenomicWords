@@ -1,7 +1,9 @@
 sequences/synthetic_sequences.fasta
 .idea/*
+results
 *.fasta
 *.csv
 *.json
+*.fna
 labels.txt
 venv
